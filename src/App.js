@@ -1,25 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import MainBox from './components/main-box/main-box';
+import SideBar from './components/side-bar/side-bar';
+import TopBox from './components/top-box/top-box';
+import { getMovies } from './Services/ApiClient';
+import React, { useState, useEffect, createContext } from 'react';
+export const CTX = createContext();
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	// tracking the movies state, add food after
+	const [movieList, setMovieList] = useState([]);
+	const [voteCount, setVoteCount] = useState(0);
+
+	useEffect(() => {
+		getMovies().then((result) => {
+			setMovieList(result.slice(0, 6));
+		});
+	}, []);
+
+	return (
+		// providing context of these values to your whole app
+		<CTX.Provider value={{ movieList, voteCount, setVoteCount }}>
+			<div className='App'>
+				<div className='left'>
+					<SideBar></SideBar>
+				</div>
+				<div className='right'>
+					<TopBox></TopBox>
+					<MainBox></MainBox>
+				</div>
+			</div>
+		</CTX.Provider>
+	);
 }
 
 export default App;

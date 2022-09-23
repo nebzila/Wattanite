@@ -1,0 +1,9 @@
+.side-bar {
+	border-radius: 15px;
+	color: #662e9b;
+	background-color: #f9c80e;
+	height: 875px;
+	margin: 10px;
+	flex-direction: column;
+	align-items: center;
+}
