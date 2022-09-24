@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import './main-box.css';
 import OptionBox from '../option-box/option-box';
-import { getMovies } from '../../Services/ApiClient';
 import { CTX } from '../../App';
 
 const MainBox = () => {
@@ -10,7 +9,11 @@ const MainBox = () => {
 	return (
 		<div className='main-box'>
 			{movieList.map((movie) => (
-				<OptionBox key={movie.id} movie={movie}></OptionBox>
+				<OptionBox
+					key={movie.id}
+					movie={movie}
+					vote={movie.voteCount}
+				></OptionBox>
 			))}
 		</div>
 	);

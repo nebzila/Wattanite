@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CTX } from '../../App';
 import './option-box.css';
 const OptionBox = (props) => {
-	const { voteCount, setVoteCount } = useContext(CTX);
-
+	const { totalVotes, setTotalVotes } = useContext(CTX);
 	return (
 		<div className='option-box'>
 			<div className='content'>
@@ -13,12 +12,16 @@ const OptionBox = (props) => {
 				/>
 				<div className='text'>
 					<h1 className='title'>{props.movie.title}</h1>
+					<h3>{props.movie.voteCount}</h3>
 					<p className='blurb'>{props.movie.overview}</p>
 				</div>
 			</div>
 			<button
 				className='vote-button'
-				onClick={() => setVoteCount(voteCount + 1)}
+				onClick={() => {
+					props.movie.voteCount++;
+					setTotalVotes(totalVotes + 1);
+				}}
 			>
 				+ 1
 			</button>

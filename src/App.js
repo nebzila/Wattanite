@@ -9,7 +9,7 @@ export const CTX = createContext();
 function App() {
 	// tracking the movies state, add food after
 	const [movieList, setMovieList] = useState([]);
-	const [voteCount, setVoteCount] = useState(0);
+	const [totalVotes, setTotalVotes] = useState(0);
 
 	useEffect(() => {
 		getMovies().then((result) => {
@@ -19,7 +19,7 @@ function App() {
 
 	return (
 		// providing context of these values to your whole app
-		<CTX.Provider value={{ movieList, voteCount, setVoteCount }}>
+		<CTX.Provider value={{ movieList, totalVotes, setTotalVotes }}>
 			<div className='App'>
 				<div className='left'>
 					<SideBar></SideBar>
