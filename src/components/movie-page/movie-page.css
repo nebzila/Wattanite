@@ -1,14 +1,12 @@
-.option-box {
+.movie-page {
 	width: 400px;
 	border-radius: 20%;
-	background-color: #662e9b;
 	display: flex;
-	justify-content: center;
 	padding: 10px;
-	color: #f9c80e;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .content {

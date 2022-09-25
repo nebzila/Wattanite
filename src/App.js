@@ -2,7 +2,7 @@ import './App.css';
 import MainBox from './components/main-box/main-box';
 import SideBar from './components/side-bar/side-bar';
 import TopBox from './components/top-box/top-box';
-import { getMovies } from './Services/ApiClient';
+import { getMovies } from './Services/movie-service';
 import React, { useState, useEffect, createContext } from 'react';
 export const CTX = createContext();
 

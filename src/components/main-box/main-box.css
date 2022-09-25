@@ -1,8 +1,6 @@
 .main-box {
 	border-radius: 15px;
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
+
 	width: 1500px;
 	background-color: #f9c80e;
 	height: 800px;
