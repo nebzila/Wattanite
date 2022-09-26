@@ -3,6 +3,7 @@ import './main-box.css';
 import StartScreen from '../start-screen/start-screen';
 import MoviePage from '../movie-page/movie-page';
 import RestaurantPage from '../restaurant-page/restaurant-page';
+//import WinnerPage from '../winner-page/winner-page';
 export const mainContext = createContext();
 
 const MainBox = () => {
@@ -14,7 +15,6 @@ const MainBox = () => {
 		movie: {},
 		restaurant: {},
 	});
-	console.log(page);
 
 	return (
 		<mainContext.Provider value={{ page, setPage, setFormData, formData }}>
@@ -24,6 +24,7 @@ const MainBox = () => {
 						name: <StartScreen />,
 						movies: <MoviePage />,
 						restaurant: <RestaurantPage />,
+						winner: <h1>winner</h1>,
 					}[page]
 				}
 			</div>

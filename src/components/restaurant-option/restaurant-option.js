@@ -7,10 +7,12 @@ const RestaurantOption = (props) => {
 
 	function submitHandler(event, restaurantData) {
 		event.preventDefault();
-		setFormData({ ...formData, restaurant: restaurantData });
+		console.log(restaurantData);
+		setFormData({ ...formData, restaurant: restaurantData }, () => {});
+
 		setPage('winner');
 	}
-
+	console.log('2', formData);
 	return (
 		<div className='restaurant-option'>
 			<div className='content'>

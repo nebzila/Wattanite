@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
-import './winner-screen.css';
+import './winner-option.css';
 import { CTX } from '../../App';
-const WinnerScreen = () => {
+const WinnerOption = () => {
 	const { movieList } = useContext(CTX);
 	const [titleVal, setTitleVal] = useState('hello');
 	const [posterVal, setPosterVal] = useState('');
@@ -26,6 +26,7 @@ const WinnerScreen = () => {
 	return (
 		<div className='container'>
 			<div className='winner-content'>
+				<h1>Winner</h1>
 				{posterVal === '' ? (
 					<h1 className='round-one'>Round 1</h1>
 				) : (
@@ -39,4 +40,4 @@ const WinnerScreen = () => {
 	);
 };
 
-export default WinnerScreen;
+export default WinnerOption;
