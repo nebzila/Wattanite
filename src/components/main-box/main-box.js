@@ -14,10 +14,10 @@ const MainBox = () => {
 		movie: {},
 		restaurant: {},
 	});
-	console.log(formData);
+	console.log(page);
 
 	return (
-		<mainContext.Provider value={{ setPage, setFormData, formData }}>
+		<mainContext.Provider value={{ page, setPage, setFormData, formData }}>
 			<div className='main-box'>
 				{
 					{

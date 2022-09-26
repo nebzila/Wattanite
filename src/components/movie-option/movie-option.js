@@ -5,16 +5,10 @@ import { mainContext } from '../main-box/main-box';
 const MovieOption = (props) => {
 	const { setPage, setFormData, formData } = useContext(mainContext);
 
-	//const [film, setFilm] = useState({});
-
-	// how do you save the film as an object
 	function submitHandler(event, movieData) {
-		console.log({ movieData });
 		event.preventDefault();
 		setFormData({ ...formData, movie: movieData });
 		setPage('restaurant');
-		console.log(formData);
-		console.log(props.value);
 	}
 
 	return (
@@ -33,9 +27,6 @@ const MovieOption = (props) => {
 			<button
 				className='vote-button'
 				onClick={(event) => {
-					// this setfilm doesn't work properly
-					console.log('on-click', props.value);
-					//	setFilm(props.value); // <- STATE-SETTERS ARE ASYNC
 					submitHandler(event, props.value);
 				}}
 			>

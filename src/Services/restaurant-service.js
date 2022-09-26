@@ -1,6 +1,6 @@
 const restaurantKey = process.env.REACT_APP_MOVIE_API_KEY;
 
-const restaurantURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=coffee+shop&location=london&radius=1000&region=UK&key=${restaurantKey}`;
+const restaurantURL = `https://maps.googleapis.com/maps/api/js?key=${restaurantKey}&libraries=places&callback=initMap`;
 
 export const getRestaurants = async () => {
 	// after
@@ -14,6 +14,7 @@ export const getRestaurants = async () => {
 		return output;
 	} catch (error) {
 		console.error(error);
+		return [];
 	}
 
 	// before
