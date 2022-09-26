@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './movie-page.css';
-import { getMovies } from '../../Services/movie-service';
+import { getMovies } from '../../Services/server-service';
 import MovieOption from '../movie-option/movie-option';
 
 const MoviePage = () => {

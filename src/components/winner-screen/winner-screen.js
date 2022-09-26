@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
-import './winner-box.css';
+import './winner-screen.css';
 import { CTX } from '../../App';
-const WinnerBox = () => {
+const WinnerScreen = () => {
 	const { movieList } = useContext(CTX);
 	const [titleVal, setTitleVal] = useState('hello');
 	const [posterVal, setPosterVal] = useState('');
@@ -39,4 +39,4 @@ const WinnerBox = () => {
 	);
 };
 
-export default WinnerBox;
+export default WinnerScreen;

@@ -12,7 +12,4 @@ export const getMovies = async () => {
 	} catch (error) {
 		console.error(error);
 	}
-
-	//before
-	// const movies = await (await fetch(movieURL)).json();
 };
