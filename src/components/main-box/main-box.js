@@ -3,6 +3,7 @@ import './main-box.css';
 import StartScreen from '../start-screen/start-screen';
 import MoviePage from '../movie-page/movie-page';
 import RestaurantPage from '../restaurant-page/restaurant-page';
+import WinnerOption from '../winner-option/winner-option';
 //import WinnerPage from '../winner-page/winner-page';
 export const mainContext = createContext();
 
@@ -24,7 +25,7 @@ const MainBox = () => {
 						name: <StartScreen />,
 						movies: <MoviePage />,
 						restaurant: <RestaurantPage />,
-						winner: <h1>winner</h1>,
+						winner: <WinnerOption />,
 					}[page]
 				}
 			</div>

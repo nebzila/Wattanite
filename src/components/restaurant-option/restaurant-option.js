@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { mainContext } from '../main-box/main-box';
 import './restaurant-option.css';
 
@@ -7,12 +7,14 @@ const RestaurantOption = (props) => {
 
 	function submitHandler(event, restaurantData) {
 		event.preventDefault();
-		console.log(restaurantData);
-		setFormData({ ...formData, restaurant: restaurantData }, () => {});
-
-		setPage('winner');
+		setFormData({ ...formData, restaurant: restaurantData });
 	}
-	console.log('2', formData);
+
+	useEffect(() => {
+		if (formData.movie.id && formData.restaurant.place_id) setPage('winner');
+		console.log('form', formData);
+	}, [formData]);
+
 	return (
 		<div className='restaurant-option'>
 			<div className='content'>
