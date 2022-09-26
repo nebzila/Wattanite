@@ -2,18 +2,19 @@ import React, { useState, createContext } from 'react';
 import './main-box.css';
 import StartScreen from '../start-screen/start-screen';
 import MoviePage from '../movie-page/movie-page';
+import RestaurantPage from '../restaurant-page/restaurant-page';
 export const mainContext = createContext();
 
 const MainBox = () => {
 	// how do you set object
 	const [page, setPage] = useState('name');
 	const [formData, setFormData] = useState({
-		name: String,
-		postcode: String,
-		movie: Object,
+		name: '',
+		postcode: '',
+		movie: {},
 		restaurant: {},
 	});
-	console.log(page);
+	console.log(formData);
 
 	return (
 		<mainContext.Provider value={{ setPage, setFormData, formData }}>
@@ -22,6 +23,7 @@ const MainBox = () => {
 					{
 						name: <StartScreen />,
 						movies: <MoviePage />,
+						restaurant: <RestaurantPage />,
 					}[page]
 				}
 			</div>

@@ -1,0 +1,43 @@
+.restaurant-option {
+	width: 400px;
+	border-radius: 20%;
+	background-color: #662e9b;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	color: #f9c80e;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	flex-direction: column;
+}
+
+.content {
+	display: flex;
+	flex-direction: row;
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+}
+
+.poster {
+	margin: 5px;
+	border-radius: 10px;
+	height: 200px;
+}
+
+.vote-button {
+	width: 75%;
+	background-color: #f86624;
+	align-self: center;
+	font-weight: bold;
+	border-radius: 15px;
+	height: 50px;
+}
+
+.blurb {
+	height: 55px;
+	overflow-y: scroll;
+}

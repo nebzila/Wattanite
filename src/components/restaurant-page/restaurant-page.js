@@ -1,12 +1,16 @@
-import React, { useState, useContext } from 'react';
-import './restaurant-option.css';
+import React, { useState, useEffect } from 'react';
+import { getRestaurants } from '../../Services/restaurant-service';
+import RestaurantOption from '../restaurant-option/restaurant-option';
+import './restaurant-page.css';
 
 const RestaurantPage = () => {
 	const [restaurantList, setRestaurantList] = useState([]);
 	useEffect(() => {
-		getRestaurants().then((result) => {
-			setRestaurantList(result.slice(0, 6));
-		});
+		getRestaurants()
+			.then((result) => {
+				setRestaurantList(result.slice(0, 6));
+			})
+			.catch((err) => console.log('getRestaurants()', err));
 	}, []);
 
 	return restaurantList === [] ? (
@@ -22,3 +26,5 @@ const RestaurantPage = () => {
 		</div>
 	);
 };
+
+export default RestaurantPage;

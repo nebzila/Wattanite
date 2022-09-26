@@ -28,7 +28,7 @@ const StartScreen = () => {
 				placeholder='Enter your postcode...'
 				onChange={(event) => setPostcode(event.target.value)}
 			></input>
-			<button type='submit'>Let's go!</button>
+			<button type='submit'>Start</button>
 		</form>
 	);
 };

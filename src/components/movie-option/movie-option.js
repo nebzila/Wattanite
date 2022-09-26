@@ -1,16 +1,17 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import './movie-option.css';
 import { mainContext } from '../main-box/main-box';
 
 const MovieOption = (props) => {
 	const { setPage, setFormData, formData } = useContext(mainContext);
 
-	const [film, setFilm] = useState({});
+	//const [film, setFilm] = useState({});
 
 	// how do you save the film as an object
-	function submitHandler(event) {
+	function submitHandler(event, movieData) {
+		console.log({ movieData });
 		event.preventDefault();
-		setFormData({ ...formData, movie: film });
+		setFormData({ ...formData, movie: movieData });
 		setPage('restaurant');
 		console.log(formData);
 		console.log(props.value);
@@ -33,8 +34,9 @@ const MovieOption = (props) => {
 				className='vote-button'
 				onClick={(event) => {
 					// this setfilm doesn't work properly
-					setFilm(props.value);
-					submitHandler(event);
+					console.log('on-click', props.value);
+					//	setFilm(props.value); // <- STATE-SETTERS ARE ASYNC
+					submitHandler(event, props.value);
 				}}
 			>
 				+ 1
