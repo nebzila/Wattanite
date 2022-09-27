@@ -3,8 +3,7 @@ import './main-box.css';
 import StartScreen from '../start-screen/start-screen';
 import MoviePage from '../movie-page/movie-page';
 import RestaurantPage from '../restaurant-page/restaurant-page';
-import WinnerOption from '../winner-option/winner-option';
-//import WinnerPage from '../winner-page/winner-page';
+import WinnerPage from '../winner-page/winner-page';
 export const mainContext = createContext();
 
 const MainBox = () => {
@@ -20,12 +19,13 @@ const MainBox = () => {
 	return (
 		<mainContext.Provider value={{ page, setPage, setFormData, formData }}>
 			<div className='main-box'>
+				<h1 className='wattanite'>Wattanite!</h1>
 				{
 					{
 						name: <StartScreen />,
 						movies: <MoviePage />,
 						restaurant: <RestaurantPage />,
-						winner: <WinnerOption />,
+						winner: <WinnerPage />,
 					}[page]
 				}
 			</div>

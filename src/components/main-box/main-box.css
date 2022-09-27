@@ -1,7 +1,17 @@
 .main-box {
-	border-radius: 15px;
+	height: 90vh;
+	width: 90vw;
+	border-radius: 50px;
+	border: white 5px solid;
+	background-color: #1d0085;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
-	width: 1500px;
-	background-color: #f9c80e;
-	height: 800px;
+.wattanite {
+	/* text-shadow: -1px 0 white, 0 2px white, 2px 0 white, 0 -1px white; */
+	-webkit-text-stroke: 0.01px white;
+	font-size: 350%;
+	text-decoration: underline;
 }

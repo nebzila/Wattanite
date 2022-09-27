@@ -1,0 +1,54 @@
+.start-screen {
+	color: azure;
+	-webkit-text-stroke: 0.01px black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.submit-button {
+	width: 90%;
+	height: 20%;
+	margin-top: 15%;
+	border-radius: 30px;
+	border: white 5px solid;
+	background-color: #465298;
+	color: white;
+	font-size: 200%;
+}
+
+.fields {
+	display: flex;
+	justify-content: space-between;
+}
+
+h1 {
+	font-size: 300%;
+}
+
+.desc {
+	font-size: 175%;
+}
+
+.name-input {
+	border: 5px solid #465298;
+	border-radius: 20px;
+	padding: 5%;
+	margin: 5%;
+	background-color: #606dbc;
+}
+
+.postcode-input {
+	border: 5px solid #465298;
+	border-radius: 20px;
+	padding: 5%;
+	margin: 5%;
+	background-color: #606dbc;
+}
+
+input {
+	height: 30%;
+	width: 99%;
+	border-radius: 30px;
+}

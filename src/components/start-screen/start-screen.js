@@ -16,20 +16,38 @@ const StartScreen = () => {
 	}
 
 	return (
-		<form onSubmit={submitHandler}>
-			<h1> Start </h1>
-			<input
-				type='text'
-				placeholder='Enter your name...'
-				onChange={(event) => setName(event.target.value)}
-			></input>
-			<input
-				type='text'
-				placeholder='Enter your postcode...'
-				onChange={(event) => setPostcode(event.target.value)}
-			></input>
-			<button type='submit'>Start</button>
-		</form>
+		<div className='start-screen'>
+			<form className='inputs' onSubmit={submitHandler}>
+				<div className='desc'>
+					<p>Enjoy your night without a fight.</p>
+					<p>Vote as a group from a selection of the current</p>
+					<p>best movies and the best food local to you.</p>
+				</div>
+				<div className='fields'>
+					<div className='name-input'>
+						<h2>Name</h2>
+						<input
+							type='text'
+							placeholder='Enter your name...'
+							onChange={(event) => setName(event.target.value)}
+							required
+						></input>
+					</div>
+					<div className='postcode-input'>
+						<h2>Postcode</h2>
+						<input
+							type='text'
+							placeholder='Enter your postcode...'
+							onChange={(event) => setPostcode(event.target.value)}
+							required
+						></input>
+					</div>
+				</div>
+				<button className='submit-button' type='submit'>
+					Start
+				</button>
+			</form>
+		</div>
 	);
 };
 
