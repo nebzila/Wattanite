@@ -14,6 +14,7 @@ export const getRestaurants = async () => {
 	try {
 		const response = await fetch(baseURL + '/restaurant-service');
 		const restaurantData = await response.json();
+		console.log(restaurantData);
 		return restaurantData.results;
 	} catch (error) {
 		console.log(error);

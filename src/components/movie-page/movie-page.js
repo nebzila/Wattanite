@@ -11,7 +11,7 @@ const MoviePage = () => {
 		});
 	}, []);
 
-	return movieList === [] ? (
+	return !movieList[0] ? (
 		<Loading />
 	) : (
 		<div className='movie-page'>

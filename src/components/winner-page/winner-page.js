@@ -2,30 +2,37 @@ import React, { useState, useEffect, useContext } from 'react';
 import { mainContext } from '../main-box/main-box';
 import WinnerMovie from '../winner-movie/winner-movie';
 import WinnerRestaurant from '../winner-restaurant/winner-restaurant';
+import Loading from '../loading/loading';
 import './winner-page.css';
 
 const WinnerPage = () => {
-	const [winnerList, setWinnerList] = useState([]);
 	const CTX = useContext(mainContext);
-	console.log('ctx winner option', CTX);
+	const [canShow, setCanShow] = useState(false);
 
 	useEffect(() => {
-		setWinnerList(CTX.formData);
-	}, []);
-
-	return winnerList === [] ? (
-		<h1>Loading</h1>
-	) : (
+		const timer = setTimeout(() => setCanShow(true), 4000);
+		return () => clearTimeout(timer);
+	});
+	return canShow ? (
 		<div className='winner-page'>
-			<WinnerMovie
-				className='movie-winner'
-				value={CTX.formData.movie}
-			></WinnerMovie>
-			<WinnerRestaurant
-				className='restaurant-winner'
-				value={CTX.formData.restaurant}
-			/>
+			<h1>Winners!</h1>
+			<h1>Sam & Simon</h1>
+			<div className='winners'>
+				<WinnerMovie
+					className='movie-winner'
+					value={CTX.formData.movie}
+				></WinnerMovie>
+				<WinnerRestaurant
+					className='restaurant-winner'
+					value={CTX.formData.restaurant}
+				/>
+			</div>
 		</div>
+	) : (
+		<>
+			<h1 className='loader'>Collecting results...</h1>
+			<Loading></Loading>
+		</>
 	);
 };
 

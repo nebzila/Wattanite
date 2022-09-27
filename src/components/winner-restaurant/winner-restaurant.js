@@ -3,15 +3,16 @@ import './winner-restaurant.css';
 
 const WinnerRestaurant = (props) => {
 	return (
-		<div className='restaurant-option'>
-			<div className='restaurant-left'>
-				<img className='restaurant-poster' src={props.value.icon} />
+		<div className='winner-restaurant-option'>
+			<div className='winner-restaurant-left'>
+				<img
+					className='winner-restaurant-poster'
+					src={props.value.photos[0].imgsrc}
+				/>
 			</div>
-			<div className='restaurant-right'>
-				<div className='restaurant-text'>
-					<h1 className='restaurant-title'>{props.value.name}</h1>
-					<h3>{props.value.voteCount}</h3>
-					<p className='restaurant-blurb'>{props.value.overview}</p>
+			<div className='winner-restaurant-right'>
+				<div className='winner-restaurant-text'>
+					<h1 className='winner-restaurant-title'>{props.value.name}</h1>
 				</div>
 			</div>
 		</div>

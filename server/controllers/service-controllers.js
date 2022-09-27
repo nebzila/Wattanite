@@ -6,8 +6,9 @@ const restaurantKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 const movieURL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${movieKey}`;
 const restaurantURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=takeaway&location=london&radius=500&region=UK&key=${restaurantKey}`;
-// const photoURL = `	https://maps.googleapis.com/maps/api/place/photo?maxwidth=400
-//          &photoreference=${ref}&key=${restaurantKey}`;
+const photoURL = (ref) =>
+	`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=${restaurantKey}`;
+
 const getMovies = async (req, res) => {
 	try {
 		const response = await fetch(movieURL);
@@ -22,8 +23,18 @@ const getMovies = async (req, res) => {
 
 const getRestaurants = async (req, res) => {
 	try {
+		// get restaurant data
 		const response = await fetch(restaurantURL);
 		const restaurants = await response.json();
+
+		// map restaurants setup photo src for each
+		restaurants.results.forEach((result) => {
+			result.photos.forEach(
+				(photo) => (photo.imgsrc = photoURL(photo.photo_reference))
+			);
+		});
+
+		// send data
 		res.send(restaurants);
 		res.status(200);
 	} catch (error) {

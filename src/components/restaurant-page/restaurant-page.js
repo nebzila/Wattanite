@@ -12,7 +12,7 @@ const RestaurantPage = () => {
 		});
 	}, []);
 
-	return restaurantList === [] ? (
+	return !restaurantList[0] ? (
 		<Loading />
 	) : (
 		<div className='restaurant-page'>

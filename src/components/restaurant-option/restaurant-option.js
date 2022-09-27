@@ -12,19 +12,16 @@ const RestaurantOption = (props) => {
 
 	useEffect(() => {
 		if (formData.movie.id && formData.restaurant.place_id) setPage('winner');
-		console.log('form', formData);
 	}, [formData]);
 
 	return (
 		<div className='restaurant-option'>
 			<div className='restaurant-left'>
-				<img className='restaurant-poster' src={props.value.icon} />
+				<img className='restaurant-poster' src={props.value.photos[0].imgsrc} />
 			</div>
 			<div className='restaurant-right'>
 				<div className='restaurant-text'>
 					<h1 className='restaurant-title'>{props.value.name}</h1>
-					<h3>{props.value.voteCount}</h3>
-					<p className='restaurant-blurb'>{props.value.overview}</p>
 				</div>
 				<button
 					className='restaurant-vote-button'
