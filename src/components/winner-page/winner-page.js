@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { mainContext } from '../main-box/main-box';
-import MovieOption from '../movie-option/movie-option';
-import RestaurantOption from '../restaurant-option/restaurant-option';
+import WinnerMovie from '../winner-movie/winner-movie';
+import WinnerRestaurant from '../winner-restaurant/winner-restaurant';
 import './winner-page.css';
 
 const WinnerPage = () => {
@@ -11,18 +11,17 @@ const WinnerPage = () => {
 
 	useEffect(() => {
 		setWinnerList(CTX.formData);
-		console.log(winnerList);
 	}, []);
 
 	return winnerList === [] ? (
 		<h1>Loading</h1>
 	) : (
 		<div className='winner-page'>
-			<MovieOption
+			<WinnerMovie
 				className='movie-winner'
 				value={CTX.formData.movie}
-			></MovieOption>
-			<RestaurantOption
+			></WinnerMovie>
+			<WinnerRestaurant
 				className='restaurant-winner'
 				value={CTX.formData.restaurant}
 			/>

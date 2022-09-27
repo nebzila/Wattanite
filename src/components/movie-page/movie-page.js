@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './movie-page.css';
 import { getMovies } from '../../Services/server-service';
 import MovieOption from '../movie-option/movie-option';
-
+import Loading from '../loading/loading';
 const MoviePage = () => {
 	const [movieList, setMovieList] = useState([]);
 	useEffect(() => {
@@ -12,7 +12,7 @@ const MoviePage = () => {
 	}, []);
 
 	return movieList === [] ? (
-		<h1>Loading</h1>
+		<Loading />
 	) : (
 		<div className='movie-page'>
 			{movieList.map((movie) => (

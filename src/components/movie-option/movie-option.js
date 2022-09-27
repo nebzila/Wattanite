@@ -13,25 +13,28 @@ const MovieOption = (props) => {
 
 	return (
 		<div className='movie-option'>
-			<div className='content'>
+			<div className='movie-left'>
 				<img
-					className='poster'
+					className='movie-poster'
 					src={'https://image.tmdb.org/t/p/w300/' + props.value.poster_path}
 				/>
-				<div className='text'>
-					<h1 className='title'>{props.value.title}</h1>
-					<h3>{props.value.voteCount}</h3>
-					<p className='blurb'>{props.value.overview}</p>
-				</div>
 			</div>
-			<button
-				className='vote-button'
-				onClick={(event) => {
-					submitHandler(event, props.value);
-				}}
-			>
-				+ 1
-			</button>
+			<div className='movie-right'>
+				<div className='movie-text'>
+					<h1 className='movie-title'>{props.value.title}</h1>
+					<h3>{props.value.voteCount}</h3>
+					<p className='movie-blurb'>{props.value.overview}</p>
+				</div>
+
+				<button
+					className='movie-vote-button'
+					onClick={(event) => {
+						submitHandler(event, props.value);
+					}}
+				>
+					+ 1
+				</button>
+			</div>
 		</div>
 	);
 };

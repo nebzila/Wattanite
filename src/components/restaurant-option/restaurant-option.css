@@ -1,43 +1,71 @@
 .restaurant-option {
-	width: 400px;
-	border-radius: 20%;
-	background-color: #662e9b;
+	width: 30%;
+	background-color: #465298;
+	height: 30%;
+	border-radius: 15px;
 	display: flex;
-	justify-content: center;
-	padding: 10px;
-	color: #f9c80e;
-	margin-top: 10px;
-	margin-bottom: 10px;
+}
+
+.restaurant-left {
+	height: 100%;
+	width: 40%;
+	align-items: center;
+}
+.restaurant-right {
+	height: 100%;
 	flex-direction: column;
-}
-
-.content {
 	display: flex;
-	flex-direction: row;
+	width: 80%;
+	justify-content: space-around;
 }
 
-.text {
-	display: flex;
-	flex-direction: column;
-	width: 200px;
+.restaurant-text {
+	color: white;
+	text-align: center;
+	height: 50%;
 }
 
-.poster {
-	margin: 5px;
+.restaurant-title {
+	font-size: 200%;
+}
+
+.restaurant-poster {
 	border-radius: 10px;
-	height: 200px;
+	height: 90%;
+	margin: 15px;
 }
 
-.vote-button {
-	width: 75%;
-	background-color: #f86624;
+.restaurant-vote-button {
+	width: 90%;
+	background-color: #606dbc;
 	align-self: center;
 	font-weight: bold;
 	border-radius: 15px;
-	height: 50px;
+	border: solid white 5px;
+	height: 15%;
+	color: white;
 }
 
-.blurb {
-	height: 55px;
+.restaurant-blurb {
 	overflow-y: scroll;
+	height: 50%;
+	justify-self: start;
+}
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: white;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+	border-radius: 10px;
 }
