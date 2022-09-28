@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const path = require('path');
+
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 const movieKey = process.env.REACT_APP_MOVIE_API_KEY;
 const restaurantKey = process.env.REACT_APP_GOOGLE_API_KEY;
@@ -44,12 +45,3 @@ const getRestaurants = async (req, res) => {
 };
 
 module.exports = { getMovies, getRestaurants };
-
-// const refs = [];
-// for (const rest of restaurants.results) {
-// 	refs.push(
-// 		fetch(
-// 			`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${rest.photos[0].photo_reference}&key=${restaurantKey}`
-// 		)
-// 	);
-// }

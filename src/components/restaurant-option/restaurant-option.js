@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { sendVote } from '../../Services/server-service';
 import { mainContext } from '../main-box/main-box';
 import './restaurant-option.css';
 
@@ -8,6 +9,7 @@ const RestaurantOption = (props) => {
 	function submitHandler(event, restaurantData) {
 		event.preventDefault();
 		setFormData({ ...formData, restaurant: restaurantData });
+		sendVote(formData);
 	}
 
 	useEffect(() => {
