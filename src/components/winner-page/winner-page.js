@@ -15,7 +15,7 @@ const WinnerPage = () => {
 			setWinnerList(result.slice(0, 2));
 		});
 	}, []);
-
+	// i dont think i'll need to slice anymore
 	return !winnerList[0] ? (
 		<>
 			<h1 className='loader'>Collecting results...</h1>

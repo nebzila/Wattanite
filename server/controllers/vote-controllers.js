@@ -1,6 +1,6 @@
 const formModel = require('../models/schema.js');
 
-const getEvents = async (req, res) => {
+const getForm = async (req, res) => {
 	try {
 		const gotForm = await formModel.getUserData();
 		res.json(gotForm);
@@ -20,4 +20,4 @@ const setForm = async (req, res) => {
 	}
 };
 
-module.exports = { getEvents, setForm };
+module.exports = { getForm, setForm };
