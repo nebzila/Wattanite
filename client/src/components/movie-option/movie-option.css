@@ -1,0 +1,71 @@
+.movie-option {
+	width: 30%;
+	background-color: #465298;
+	height: 30%;
+	border-radius: 15px;
+	display: flex;
+}
+
+.movie-left {
+	height: 100%;
+	width: 40%;
+	align-items: center;
+}
+.movie-right {
+	height: 100%;
+	flex-direction: column;
+	display: flex;
+	width: 80%;
+	justify-content: space-around;
+}
+
+.movie-text {
+	color: white;
+	text-align: center;
+	height: 50%;
+}
+
+.movie-title {
+	font-size: 200%;
+}
+
+.movie-poster {
+	border-radius: 10px;
+	height: 90%;
+	margin: 15px;
+}
+
+.movie-vote-button {
+	width: 90%;
+	background-color: #606dbc;
+	align-self: center;
+	font-weight: bold;
+	border-radius: 15px;
+	border: solid white 5px;
+	height: 15%;
+	color: white;
+}
+
+.movie-blurb {
+	overflow-y: scroll;
+	height: 50%;
+	justify-self: start;
+}
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: white;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+	border-radius: 10px;
+}
