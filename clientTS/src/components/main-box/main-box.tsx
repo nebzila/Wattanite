@@ -4,9 +4,16 @@ import StartScreen from '../start-screen/start-screen';
 import MoviePage from '../movie-page/movie-page';
 import RestaurantPage from '../restaurant-page/restaurant-page';
 import WinnerPage from '../winner-page/winner-page';
-export const mainContext = createContext();
+
+interface AppContextInterface {
+	// page, setPage,  formData, setFormData  -- movie-option, restaurant-option, start-screen
+	
+  }
+
+export const mainContext = createContext<AppContextInterface | null>(null);
 
 const MainBox = () => {
+
 	const [page, setPage] = useState('name');
 	const [formData, setFormData] = useState({
 		name: '',

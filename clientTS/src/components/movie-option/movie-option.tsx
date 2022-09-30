@@ -2,7 +2,10 @@ import React, { useContext } from 'react';
 import './movie-option.css';
 import { mainContext } from '../main-box/main-box';
 
-const MovieOption = (props) => {
+import { MovieType } from '../../allTypes';
+
+const MovieOption = ( props: MovieType ) => {
+	
 	const { setPage, setFormData, formData } = useContext(mainContext);
 
 	function submitHandler(event, movieData) {
