@@ -1,0 +1,37 @@
+.winner-restaurant-option {
+	width: 45%;
+	background-color: #465298;
+	height: 50%;
+	border-radius: 15px;
+	display: flex;
+}
+
+.winner-restaurant-left {
+	height: 100%;
+	width: 40%;
+	align-items: center;
+}
+.winner-restaurant-right {
+	height: 100%;
+	flex-direction: column;
+	display: flex;
+	width: 80%;
+	justify-content: space-around;
+}
+
+.winner-restaurant-text {
+	color: white;
+	text-align: center;
+	height: 50%;
+}
+
+.winner-restaurant-title {
+	font-size: 200%;
+}
+
+.winner-restaurant-poster {
+	border-radius: 10px;
+	height: 90%;
+	margin: 15px;
+	max-width: 200px;
+}

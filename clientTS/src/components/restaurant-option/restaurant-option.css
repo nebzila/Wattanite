@@ -1,4 +1,4 @@
-.movie-option {
+.restaurant-option {
 	width: 30%;
 	background-color: #465298;
 	height: 30%;
@@ -6,12 +6,12 @@
 	display: flex;
 }
 
-.movie-left {
+.restaurant-left {
 	height: 100%;
 	width: 40%;
 	align-items: center;
 }
-.movie-right {
+.restaurant-right {
 	height: 100%;
 	flex-direction: column;
 	display: flex;
@@ -19,23 +19,24 @@
 	justify-content: space-around;
 }
 
-.movie-text {
+.restaurant-text {
 	color: white;
 	text-align: center;
 	height: 50%;
 }
 
-.movie-title {
+.restaurant-title {
 	font-size: 200%;
 }
 
-.movie-poster {
+.restaurant-poster {
 	border-radius: 10px;
 	height: 90%;
 	margin: 15px;
+	max-width: 200px;
 }
 
-.movie-vote-button {
+.restaurant-vote-button {
 	width: 90%;
 	background-color: #606dbc;
 	align-self: center;
@@ -46,7 +47,7 @@
 	color: white;
 }
 
-.movie-blurb {
+.restaurant-blurb {
 	overflow-y: scroll;
 	height: 50%;
 	justify-self: start;

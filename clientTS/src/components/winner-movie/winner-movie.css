@@ -1,0 +1,36 @@
+.winner-movie-option {
+	width: 45%;
+	background-color: #465298;
+	height: 50%;
+	border-radius: 15px;
+	display: flex;
+}
+
+.winner-movie-left {
+	height: 100%;
+	width: 40%;
+	align-items: center;
+}
+.winner-movie-right {
+	height: 100%;
+	flex-direction: column;
+	display: flex;
+	width: 80%;
+	justify-content: space-around;
+}
+
+.winner-movie-text {
+	color: white;
+	text-align: center;
+	height: 50%;
+}
+
+.winner-movie-title {
+	font-size: 200%;
+}
+
+.winner-movie-poster {
+	border-radius: 10px;
+	height: 90%;
+	margin: 15px;
+}

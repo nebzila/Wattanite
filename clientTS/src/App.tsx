@@ -1,14 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Loading from './components/loading/loading';
+import MainBox from './components/main-box/main-box';
+import React from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <Loading></Loading>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<MainBox></MainBox>
+		</div>
+	);
 }
 
 export default App;
