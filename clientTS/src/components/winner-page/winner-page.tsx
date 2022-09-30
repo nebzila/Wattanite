@@ -8,7 +8,7 @@ import { getWinners } from '../../Services/server-service';
 import './winner-page.css';
 
 const WinnerPage = () => {
-  const CTX = useContext(mainContext);
+  //const CTX = useContext(mainContext);
   const [winnerList, setWinnerList] = useState([]);
 
   useEffect(() => {
