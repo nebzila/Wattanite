@@ -4,13 +4,17 @@ import StartScreen from '../start-screen/start-screen';
 import MoviePage from '../movie-page/movie-page';
 import RestaurantPage from '../restaurant-page/restaurant-page';
 import WinnerPage from '../winner-page/winner-page';
+import { MovieType, RestaurantType } from '../../allTypes';
 
-interface AppContextInterface {
+interface IContext {
 	// page, setPage,  formData, setFormData  -- movie-option, restaurant-option, start-screen
-	
+	page: string;
+	setPage: Dispatch<SetStateAction<string>>;
+	formData: { name: string; postcode: string; movie: MovieType; restaurant: RestaurantType };
+	setFormData: Dispatch<SetStateAction<{ name: string; postcode: string; movie: MovieType; restaurant: RestaurantType }>>;
   }
 
-export const mainContext = createContext<AppContextInterface | null>(null);
+export const mainContext = createContext<IContext | null>(null);
 
 const MainBox = () => {
 
