@@ -50,3 +50,4 @@ export type RestaurantType = {
   types: [string];
   user_ratings_total: number
 }
+

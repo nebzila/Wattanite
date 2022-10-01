@@ -1,9 +1,9 @@
-import { ObjectId } from 'mongodb';
+// import { ObjectId } from 'mongodb';
 
 export type MovieType = {
   adult: boolean;
   backdrop_path: string;
-  id: number;
+  id: number | null;
   title: string;
   original_language: string;
   original_title: string;
