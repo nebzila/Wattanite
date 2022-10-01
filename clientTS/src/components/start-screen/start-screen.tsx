@@ -14,7 +14,7 @@ const StartScreen = () => {
 		setName('');
 		setPostcode('');
 		setFormData({ ...formData, name: name, postcode: postCode });
-		setPage('winner');
+		setPage('movies');
 	}
 
 	return (

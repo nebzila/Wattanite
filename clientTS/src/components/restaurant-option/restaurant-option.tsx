@@ -9,11 +9,8 @@ const RestaurantOption = (restaurant: RestaurantType) => {
 
   const submitHandler = async (event: MouseEvent<HTMLButtonElement>, restaurantData: RestaurantType) => {
     event.preventDefault();
-    console.log(restaurantData);
     const restData = { ...formData, restaurant: restaurantData };
-    console.log('RESTDATA:', restData);
     await setFormData(restData);
-    console.log('formdata: ', formData);
     sendVote(restData);
   };
 

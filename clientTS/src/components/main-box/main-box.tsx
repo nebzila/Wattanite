@@ -7,10 +7,6 @@ import WinnerPage from '../winner-page/winner-page';
 import { MovieType, RestaurantType } from '../../allTypes';
 
 interface IContext {
-	// page, setPage,  formData, setFormData  -- movie-option, restaurant-option, start-screen
-	//setPage: any;
-	//formData: any;
-    //setFormData: any;
 	page: string;
 	setPage: Dispatch<SetStateAction<string>>;
 	formData: { name: string; postcode: string; movie: MovieType; restaurant: RestaurantType };

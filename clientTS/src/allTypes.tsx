@@ -51,3 +51,18 @@ export type RestaurantType = {
   types: [string];
   user_ratings_total: number
 }
+
+export type VoteType = {
+  name: string;
+  postcode: string;
+  movie: MovieType;
+  restaurant: RestaurantType;
+}
+
+export type WinnerType = {
+  _id: string;
+  name: string;
+  postcode: string;
+  movie: MovieType;
+  restaurant: RestaurantType;
+}
