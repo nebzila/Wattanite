@@ -1,12 +1,13 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, ChangeEvent } from 'react';
+import { RestaurantType } from '../../allTypes';
 import { sendVote } from '../../Services/server-service';
 import { mainContext } from '../main-box/main-box';
 import './restaurant-option.css';
 
-const RestaurantOption = (props) => {
+const RestaurantOption = (props: RestaurantType) => {
   const { setPage, setFormData, formData } = useContext(mainContext);
 
-  const submitHandler = async (event, restaurantData) => {
+  const submitHandler = async (event: ChangeEvent<HTMLInputElement>, restaurantData: RestaurantType) => {
     event.preventDefault();
     console.log(restaurantData);
     const restData = { ...formData, restaurant: restaurantData };

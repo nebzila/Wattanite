@@ -1,16 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, ChangeEvent } from 'react';
 import './movie-option.css';
 import { mainContext } from '../main-box/main-box';
 
 import { MovieType } from '../../allTypes';
 
-const MovieOption = ( props ) => {
+const MovieOption = ( props: MovieType ) => {
 	
-	const { setPage, setFormData, formData } = useContext(mainContext);
+	const { setPage, formData, setFormData } = useContext(mainContext);
 
 	// props.value.title or formData.movie.title
 
-	function submitHandler(event, movieData) {
+	function submitHandler(event: ChangeEvent<HTMLInputElement>, movieData: MovieType) {
 		event.preventDefault();
 		setFormData({ ...formData, movie: movieData });
 		setPage('restaurant');
@@ -34,7 +34,7 @@ const MovieOption = ( props ) => {
 				<button
 					className='movie-vote-button'
 					onClick={(event) => {
-					  submitHandler(event, formData.movie);
+					  submitHandler(event, props.value);
 					}}
 				>
 					+ 1
