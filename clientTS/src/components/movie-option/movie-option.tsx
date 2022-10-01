@@ -1,4 +1,4 @@
-import React, { useContext, ChangeEvent } from 'react';
+import React, { useContext, MouseEvent } from 'react';
 import './movie-option.css';
 import { mainContext } from '../main-box/main-box';
 
@@ -10,7 +10,7 @@ const MovieOption = ( props: MovieType ) => {
 
 	// props.value.title or formData.movie.title
 
-	function submitHandler(event: ChangeEvent<HTMLInputElement>, movieData: MovieType) {
+	function submitHandler(event: MouseEvent<HTMLButtonElement>, movieData: MovieType) {
 		event.preventDefault();
 		setFormData({ ...formData, movie: movieData });
 		setPage('restaurant');
