@@ -4,11 +4,12 @@ import { mainContext } from '../main-box/main-box';
 
 import { MovieType } from '../../allTypes';
 
-const MovieOption = ( props: MovieType ) => {
+const MovieOption = ( movie: MovieType ) => {
 	
 	const { setPage, formData, setFormData } = useContext(mainContext);
 
-	// props.value.title or formData.movie.title
+	// value={movie} props.value.title or formData.movie.title or 
+
 
 	function submitHandler(event: MouseEvent<HTMLButtonElement>, movieData: MovieType) {
 		event.preventDefault();
@@ -21,20 +22,21 @@ const MovieOption = ( props: MovieType ) => {
 			<div className='movie-left'>
 				<img
 					className='movie-poster'
-					src={'https://image.tmdb.org/t/p/w300/' + props.value.poster_path}
+					src={'https://image.tmdb.org/t/p/w300/' + movie.poster_path}
 				/>
 			</div>
 			<div className='movie-right'>
 				<div className='movie-text'>
-					<h1 className='movie-title'>{props.value.title}</h1>
-					<h3>{props.value.vote_count}</h3>
-					<p className='movie-blurb'>{props.value.overview}</p>
+					{/* <h1 className='movie-title'>{props.value.title}</h1> */}
+					<h1 className='movie-title'>{movie.title}</h1>
+					<h3>{movie.vote_count}</h3>
+					<p className='movie-blurb'>{movie.overview}</p>
 				</div>
 
 				<button
 					className='movie-vote-button'
 					onClick={(event) => {
-					  submitHandler(event, props.value);
+					  submitHandler(event, movie);
 					}}
 				>
 					+ 1

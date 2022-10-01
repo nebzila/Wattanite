@@ -4,8 +4,10 @@ import RestaurantOption from '../restaurant-option/restaurant-option';
 import Loading from '../loading/loading';
 import './restaurant-page.css';
 
+import { RestaurantType } from '../../allTypes';
+
 const RestaurantPage = () => {
-	const [restaurantList, setRestaurantList] = useState([]);
+	const [restaurantList, setRestaurantList] = useState<RestaurantType[]>([]);
 	useEffect(() => {
 		getRestaurants().then((result) => {
 			setRestaurantList(result.slice(0, 6));
@@ -16,12 +18,9 @@ const RestaurantPage = () => {
 		<Loading />
 	) : (
 		<div className='restaurant-page'>
-			{restaurantList.map((restaurant) => (
-				<RestaurantOption
-					key={restaurant.place_id}
-					value={restaurant}
-				></RestaurantOption>
-			))}
+			{restaurantList.map((restaurant) => 
+				<RestaurantOption key={restaurant.place_id} {...restaurant}></RestaurantOption>
+			)}
 		</div>
 	);
 };

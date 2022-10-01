@@ -4,7 +4,7 @@ import { sendVote } from '../../Services/server-service';
 import { mainContext } from '../main-box/main-box';
 import './restaurant-option.css';
 
-const RestaurantOption = (props: RestaurantType) => {
+const RestaurantOption = (restaurant: RestaurantType) => {
   const { setPage, setFormData, formData } = useContext(mainContext);
 
   const submitHandler = async (event: MouseEvent<HTMLButtonElement>, restaurantData: RestaurantType) => {
@@ -24,16 +24,16 @@ const RestaurantOption = (props: RestaurantType) => {
   return (
     <div className="restaurant-option">
       <div className="restaurant-left">
-        <img className="restaurant-poster" src={props.value.photos[0].imgsrc} />
+        <img className="restaurant-poster" src={restaurant.photos[0].imgsrc} />
       </div>
       <div className="restaurant-right">
         <div className="restaurant-text">
-          <h1 className="restaurant-title">{props.value.name}</h1>
+          <h1 className="restaurant-title">{restaurant.name}</h1>
         </div>
         <button
           className="restaurant-vote-button"
           onClick={(event) => {
-            submitHandler(event, props.value);
+            submitHandler(event, restaurant);
           }}
         >
           + 1

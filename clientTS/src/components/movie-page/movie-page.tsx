@@ -20,9 +20,9 @@ const MoviePage = () => {
 		<Loading />
 	) : (
 		<div className='movie-page'>
-			{movieList.map((movie) => (
-				<MovieOption key={movie.id} value={movie}></MovieOption>
-			))}
+			{movieList.map((movie) => 
+				 <MovieOption key={movie.id} {...movie}></MovieOption>
+			)}
 		</div>
 	);
 };

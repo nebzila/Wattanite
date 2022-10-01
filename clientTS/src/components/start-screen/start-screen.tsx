@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, FormEventHandler } from 'react';
 import './start-screen.css';
 import { mainContext } from '../main-box/main-box';
 
@@ -7,7 +7,7 @@ const StartScreen = () => {
 	const [postCode, setPostcode] = useState('');
 	const { setPage, setFormData, formData } = useContext(mainContext);
 
-	function submitHandler(event) {
+	function submitHandler(event: any ) {
 		event.preventDefault();
 		setName('');
 		setPostcode('');

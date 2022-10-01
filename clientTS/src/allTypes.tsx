@@ -36,7 +36,7 @@ export type RestaurantType = {
   photos: [{
              height: number;
              html_attributions: [string];
-             imagesrc?: string;
+             imgsrc: string;
              photo_reference: string;
              width: number;
            }];

@@ -54,7 +54,7 @@ export const mainContext = createContext<IContext>({
 		photos: [{
 				   height: 0,
 				   html_attributions: [''],
-				   imagesrc: '',
+				   imgsrc: '',
 				   photo_reference: '',
 				   width: 0
 				 }],
@@ -83,10 +83,8 @@ const MainBox = () => {
 		restaurant: {} as RestaurantType,
 	});
 
-    console.log('clientTS - main-box');
-
 	return (
-		<mainContext.Provider value={{ page, setPage, setFormData, formData }}>
+		<mainContext.Provider value={{ page, setPage, formData, setFormData }}>
 			<div className='main-box'>
 				<h1 className='wattanite'>Wattanite!</h1>
 				{
