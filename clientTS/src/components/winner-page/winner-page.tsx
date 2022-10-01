@@ -28,11 +28,9 @@ const WinnerPage = () => {
       <h1>Winners!</h1>
       <div className="winners">
         <WinnerMovie
-          className="movie-winner"
           value={winnerList[0].movie}
         ></WinnerMovie>
         <WinnerRestaurant
-          className="restaurant-winner"
           value={winnerList[0].restaurant}
         />
       </div>
