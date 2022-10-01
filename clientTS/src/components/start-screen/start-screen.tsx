@@ -1,13 +1,15 @@
-import React, { useState, useContext, FormEventHandler } from 'react';
+import React, { useState, useContext, FormEvent } from 'react';
 import './start-screen.css';
 import { mainContext } from '../main-box/main-box';
 
 const StartScreen = () => {
-	const [name, setName] = useState('');
-	const [postCode, setPostcode] = useState('');
-	const { setPage, setFormData, formData } = useContext(mainContext);
 
-	function submitHandler(event: any ) {
+	// useState<MovieType[]>([]);
+	const [name, setName] = useState<string>('');
+	const [postCode, setPostcode] = useState<string>('');
+	const { setPage, formData, setFormData } = useContext(mainContext);
+
+	function submitHandler(event: FormEvent<HTMLFormElement> ) {
 		event.preventDefault();
 		setName('');
 		setPostcode('');
