@@ -32,11 +32,8 @@ export const getWinners = async () => {
   }
 };
 
-// name: ; postcode: ; movie: ; restaurant: ; 
-
 export const sendVote = async (vote: VoteType) => {
   try {
-    console.log('Vote: ', vote);
     const data = await fetch(baseURL + '/data', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
