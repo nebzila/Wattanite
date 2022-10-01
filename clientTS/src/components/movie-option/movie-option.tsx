@@ -27,7 +27,7 @@ const MovieOption = ( props: MovieType ) => {
 			<div className='movie-right'>
 				<div className='movie-text'>
 					<h1 className='movie-title'>{props.value.title}</h1>
-					<h3>{formData.movie.vote_count}</h3>
+					<h3>{props.value.vote_count}</h3>
 					<p className='movie-blurb'>{props.value.overview}</p>
 				</div>
 
