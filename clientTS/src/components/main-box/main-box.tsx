@@ -6,12 +6,13 @@ import RestaurantPage from '../restaurant-page/restaurant-page';
 import WinnerPage from '../winner-page/winner-page';
 // import { MovieType, RestaurantType } from '../../allTypes';
 import { MovieType, RestaurantType } from '../../../../serverTS/src/models/types';
+import { VoteType } from '../../allTypes';
 
 interface IContext {
 	page: string;
 	setPage: Dispatch<SetStateAction<string>>;
-	formData: { name: string; postcode: string; movie: MovieType; restaurant: RestaurantType };
-	setFormData: Dispatch<SetStateAction<{ name: string; postcode: string; movie: MovieType; restaurant: RestaurantType }>>;
+	formData: VoteType;
+	setFormData: Dispatch<SetStateAction<VoteType>>;
 }
 
 export const mainContext = createContext<IContext>({
