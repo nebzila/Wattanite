@@ -20,6 +20,7 @@ export const createVote = async (req: Request, res: Response) => {
     try {
       console.log('getVote running');
       const name = req.params.name
+      console.log('parameter: ', name);
       const voteFound = await Vote.findOne({name});
       if(voteFound)  res.status(200).send(voteFound)
       else res.status(404).json({message: 'Not found'})

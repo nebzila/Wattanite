@@ -9,9 +9,11 @@ const RestaurantOption = (restaurant: RestaurantType) => {
 
   const submitHandler = async (event: MouseEvent<HTMLButtonElement>, restaurantData: RestaurantType) => {
     event.preventDefault();
-    const restData = { ...formData, restaurant: restaurantData };
-    await setFormData(restData);
-    sendVote(restData);
+    const voteData = { ...formData, restaurant: restaurantData };
+    const response =  await sendVote(voteData);
+    console.log('saved to DB')
+    if (response) setFormData(voteData);
+    console.log('changed formData')
   };
 
   useEffect(() => {

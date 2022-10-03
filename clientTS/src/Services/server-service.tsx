@@ -1,10 +1,10 @@
 import { VoteType } from '../allTypes';
 
-let baseURL = 'http://localhost:3001';
+let baseURL = 'http://localhost:3002';
 
 export const getMovies = async () => {
   try {
-    const response = await fetch(baseURL + '/movie-service');
+    const response = await fetch(baseURL + '/api/movies');
     const movieData = await response.json();
     return movieData.results;
   } catch (error) {
@@ -14,7 +14,7 @@ export const getMovies = async () => {
 
 export const getRestaurants = async () => {
   try {
-    const response = await fetch(baseURL + '/restaurant-service');
+    const response = await fetch(baseURL + '/api/restaurants');
     const restaurantData = await response.json();
     return restaurantData.results;
   } catch (error) {
@@ -22,11 +22,14 @@ export const getRestaurants = async () => {
   }
 };
 
-export const getWinners = async () => {
+export const getWinners = async (name: string) => {
   try {
-    const response = await fetch(baseURL + '/data');
-    const winnerData = await response.json();
-    return winnerData;
+    console.log('getWinners in client is running');
+    const res = await fetch(baseURL + `/vote/get/${name}`);
+    console.log('res from fetch', res)
+    const winner = await res.json()
+    console.log('res after json', winner)
+    return winner
   } catch (error) {
     console.log('ERROR: getWinners Service', error);
   }
@@ -34,7 +37,7 @@ export const getWinners = async () => {
 
 export const sendVote = async (vote: VoteType) => {
   try {
-    const data = await fetch(baseURL + '/data', {
+    const data = await fetch(baseURL + '/vote/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(vote),

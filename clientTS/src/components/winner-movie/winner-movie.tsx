@@ -1,8 +1,14 @@
 import React from 'react';
 import './winner-movie.css';
-import { MovieType } from '../../allTypes';
+import { MovieType, WinnerType } from '../../allTypes';
 
-const WinnerMovie = (movie: MovieType) => {
+interface Iprops  {
+	movie: MovieType
+}
+
+const WinnerMovie = (props: Iprops) => {
+	const {movie} = props
+	console.log('MOVIE ', movie)
 	return (
 		<div className='winner-movie-option'>
 			<div className='winner-movie-left'>

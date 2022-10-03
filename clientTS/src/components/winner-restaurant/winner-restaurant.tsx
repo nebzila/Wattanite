@@ -2,7 +2,12 @@ import React from 'react';
 import './winner-restaurant.css';
 import { RestaurantType } from '../../allTypes';
 
-const WinnerRestaurant = (restaurant: RestaurantType) => {
+interface Iprops  {
+	restaurant: RestaurantType
+}
+
+const WinnerRestaurant = (props: Iprops) => {
+	const {restaurant} = props
 	return (
 		<div className='winner-restaurant-option'>
 			<div className='winner-restaurant-left'>

@@ -30,6 +30,7 @@ const getVote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         console.log('getVote running');
         const name = req.params.name;
+        console.log('parameter: ', name);
         const voteFound = yield schema_1.Vote.findOne({ name });
         if (voteFound)
             res.status(200).send(voteFound);

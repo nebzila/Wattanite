@@ -4,7 +4,8 @@ import StartScreen from '../start-screen/start-screen';
 import MoviePage from '../movie-page/movie-page';
 import RestaurantPage from '../restaurant-page/restaurant-page';
 import WinnerPage from '../winner-page/winner-page';
-import { MovieType, RestaurantType } from '../../allTypes';
+// import { MovieType, RestaurantType } from '../../allTypes';
+import { MovieType, RestaurantType } from '../../../../serverTS/src/models/types';
 
 interface IContext {
 	page: string;
@@ -25,7 +26,7 @@ export const mainContext = createContext<IContext>({
 		overview: '',
 		poster_path: '',
 		media_type: '',
-		genre_ids: [], 
+		genre_ids: [],
 		popularity: 0,
 		release_date: '',
 		video: false,

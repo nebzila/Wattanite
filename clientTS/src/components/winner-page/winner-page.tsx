@@ -10,15 +10,18 @@ import { WinnerType } from '../../allTypes';
 
 const WinnerPage = () => {
 
-  const [winnerList, setWinnerList] = useState<WinnerType[]>([]);
+  const [winnerList, setWinnerList] = useState<WinnerType>();
+  const { formData } = useContext(mainContext);
 
   useEffect(() => {
-    getWinners().then((result) => {
+    getWinners(formData.name).then((result) => {
+      console.log('result of getWinners', result)
       setWinnerList(result);
+      console.log('after setting winnerList', winnerList)
     });
   }, []);
- 
-  return !winnerList[0] ? (
+
+  return !winnerList ? (
     <>
       <h1 className="loader">Collecting results...</h1>
       <Loading></Loading>
@@ -27,8 +30,8 @@ const WinnerPage = () => {
     <div className="winner-page">
       <h1>Winners!</h1>
       <div className="winners">
-        <WinnerMovie {...winnerList[0].movie}/>
-        <WinnerRestaurant {...winnerList[0].restaurant}/>
+        <WinnerMovie movie={winnerList.movie}/>
+        <WinnerRestaurant restaurant={{...winnerList.restaurant}}/>
       </div>
     </div>
   );
