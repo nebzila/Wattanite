@@ -17,7 +17,7 @@ const RestaurantPage = () => {
 	return !restaurantList[0] ? (
 		<Loading />
 	) : (
-		<div className='restaurant-page'>
+		<div data-testid="restaurantPage-div" className='restaurant-page'>
 			{restaurantList.map((restaurant) => 
 				<RestaurantOption key={restaurant.place_id} {...restaurant}></RestaurantOption>
 			)}
