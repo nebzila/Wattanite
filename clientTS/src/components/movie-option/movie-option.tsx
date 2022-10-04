@@ -8,9 +8,6 @@ const MovieOption = ( movie: MovieType ) => {
 
 	const { setPage, formData, setFormData } = useContext(mainContext);
 
-	// value={movie} props.value.title or formData.movie.title or
-
-
 	function submitHandler(event: MouseEvent<HTMLButtonElement>, movieData: MovieType) {
 		event.preventDefault();
 		setFormData({ ...formData, movie: movieData });
