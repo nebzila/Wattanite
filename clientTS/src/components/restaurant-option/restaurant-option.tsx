@@ -11,9 +11,9 @@ const RestaurantOption = (restaurant: RestaurantType) => {
     event.preventDefault();
     const voteData = { ...formData, restaurant: restaurantData };
     const response =  await sendVote(voteData);
-    console.log('saved to DB')
+    console.log('saved to DB: voteData: ', voteData)
     if (response) setFormData(voteData);
-    console.log('changed formData')
+    console.log('changed formData: ', formData)
   };
 
   useEffect(() => {
