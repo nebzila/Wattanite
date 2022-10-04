@@ -4,8 +4,8 @@ import StartScreen from '../start-screen/start-screen';
 import MoviePage from '../movie-page/movie-page';
 import RestaurantPage from '../restaurant-page/restaurant-page';
 import WinnerPage from '../winner-page/winner-page';
-// import { MovieType, RestaurantType } from '../../allTypes';
-import { MovieType, RestaurantType } from '../../../../serverTS/src/models/types';
+import { MovieType, RestaurantType } from '../../allTypes';
+// import { MovieType, RestaurantType } from '../../../../serverTS/src/models/types';
 import { VoteType } from '../../allTypes';
 
 interface IContext {
@@ -62,7 +62,7 @@ export const mainContext = createContext<IContext>({
 		  global_code: '',
 		},
 		price_level: 0,
-		rating: '',
+		rating: 0,
 		reference: '',
 		types: [''],
 		user_ratings_total: 0

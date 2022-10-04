@@ -33,22 +33,22 @@ export type RestaurantType = {
   icon_mask_base_uri: string;
   name: string;
   opening_hours: { open_now: boolean; };
-  photos: [{
+  photos: {
              height: number;
-             html_attributions: [string];
+             html_attributions: string[];
              imgsrc: string;
              photo_reference: string;
              width: number;
-           }];
+           }[];
   place_id: string;
   plus_code: {
     compound_code: string;
     global_code: string;
   };
-  price_level: number;
-  rating: string;
+  price_level?: number | undefined;
+  rating: number;
   reference: string;
-  types: [string];
+  types: string[];
   user_ratings_total: number
 }
 
@@ -114,7 +114,7 @@ export const testContext = {
 		  global_code: '',
 		},
 		price_level: 0,
-		rating: '',
+		rating: 0,
 		reference: '',
 		types: [''],
 		user_ratings_total: 0
