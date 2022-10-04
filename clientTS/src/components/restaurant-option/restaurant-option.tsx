@@ -21,7 +21,7 @@ const RestaurantOption = (restaurant: RestaurantType) => {
   }, [formData]);
 
   return (
-    <div className="restaurant-option">
+    <div data-testid="restoptid" className="restaurant-option">
       <div className="restaurant-left">
         <img className="restaurant-poster" src={restaurant.photos[0].imgsrc} />
       </div>

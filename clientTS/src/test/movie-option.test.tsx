@@ -1,10 +1,10 @@
-import {movies, restaurants} from '../../test/mocks'
+import {movies, restaurants} from './mocks'
 import {render, screen, fireEvent, cleanup, waitForElementToBeRemoved} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import MoviePage from '../movie-page/movie-page';
+import MoviePage from '../components/movie-page/movie-page';
 import {rest} from 'msw'
 import {setupServer} from 'msw/node'
-import MovieOption from './movie-option';
+import MovieOption from '../components/movie-option/movie-option';
 
 
 
@@ -15,7 +15,7 @@ describe('Movie Page Component', () => {
 
 
 
-    render(<MovieOption {...movies[0]}/>)
+    render(<MovieOption {...movies.results[0]}/>)
 
 
     screen.getAllByTestId('movieOptionDiv')
