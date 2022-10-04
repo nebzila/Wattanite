@@ -10,7 +10,7 @@ export type MovieType = {
   overview: string;
   poster_path: string;
   media_type: string;
-  genre_ids: number[]; 
+  genre_ids: number[];
   popularity: number;
   release_date: string;
   video: boolean;
@@ -66,3 +66,59 @@ export type WinnerType = {
   movie: MovieType;
   restaurant: RestaurantType;
 }
+
+export const testContext = {
+	page: '',
+	setPage: ()=>null,
+	formData: { name: '', postcode: '', movie: { adult: true,
+		backdrop_path: '',
+		id: null,
+		title: '',
+		original_language: '',
+		original_title: '',
+		overview: '',
+		poster_path: '',
+		media_type: '',
+		genre_ids: [],
+		popularity: 0,
+		release_date: '',
+		video: false,
+		vote_average: 0,
+		vote_count: 0
+	},
+	restaurant: {
+		business_status: '',
+		formatted_address: '',
+		geometry: {
+					 location: { lat: 0, lng: 0 },
+					 viewport: {
+					   northeast: { lat: 0, lng: 0 },
+					   southwest: { lat: 0, lng: 0 },
+					},
+				 },
+		icon: '',
+		icon_background_color: '',
+		icon_mask_base_uri: '',
+		name: '',
+		opening_hours: { open_now: true },
+		photos: [{
+				   height: 0,
+				   html_attributions: [''],
+				   imgsrc: '',
+				   photo_reference: '',
+				   width: 0
+				 }],
+		place_id: '',
+		plus_code: {
+		  compound_code: '',
+		  global_code: '',
+		},
+		price_level: 0,
+		rating: '',
+		reference: '',
+		types: [''],
+		user_ratings_total: 0
+	}
+    },
+	setFormData: ()=>null
+	}

@@ -27,17 +27,21 @@ const StartScreen = () => {
 				</div>
 				<div className='fields'>
 					<div className='name-input'>
-						<h2>Name</h2>
+						<h2 aria-labelledby='nameh2'>Name</h2>
 						<input
 							type='text'
+							aria-labelledby='nameh2'
+							name="name"
 							placeholder='Enter your name...'
 							onChange={(event) => setName(event.target.value)}
 							required
 						></input>
 					</div>
 					<div className='postcode-input'>
-						<h2>Postcode</h2>
+						<h2 id="postcodeh2">Postcode</h2>
 						<input
+							name="postcode"
+							aria-labelledby='postcodeh2'
 							type='text'
 							placeholder='Enter your postcode...'
 							onChange={(event) => setPostcode(event.target.value)}

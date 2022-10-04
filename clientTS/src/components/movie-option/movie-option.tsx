@@ -5,10 +5,10 @@ import { mainContext } from '../main-box/main-box';
 import { MovieType } from '../../allTypes';
 
 const MovieOption = ( movie: MovieType ) => {
-	
+
 	const { setPage, formData, setFormData } = useContext(mainContext);
 
-	// value={movie} props.value.title or formData.movie.title or 
+	// value={movie} props.value.title or formData.movie.title or
 
 
 	function submitHandler(event: MouseEvent<HTMLButtonElement>, movieData: MovieType) {
@@ -18,7 +18,7 @@ const MovieOption = ( movie: MovieType ) => {
 	}
 
 	return (
-		<div className='movie-option'>
+		<div data-testid="movieOptionDiv" className='movie-option'>
 			<div className='movie-left'>
 				<img
 					className='movie-poster'

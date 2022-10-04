@@ -19,8 +19,8 @@ const MoviePage = () => {
 	return !movieList[0] ? (
 		<Loading />
 	) : (
-		<div className='movie-page'>
-			{movieList.map((movie) => 
+		<div data-testid="moviePage-div" className='movie-page'>
+			{movieList.map((movie) =>
 				 <MovieOption key={movie.id} {...movie}></MovieOption>
 			)}
 		</div>
