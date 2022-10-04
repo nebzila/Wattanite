@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 
+/test/mocks.js
 # testing
 /coverage
 
