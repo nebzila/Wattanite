@@ -11,9 +11,7 @@ const RestaurantOption = (restaurant: RestaurantType) => {
     event.preventDefault();
     const voteData = { ...formData, restaurant: restaurantData };
     const response =  await sendVote(voteData);
-    console.log('saved to DB')
     if (response) setFormData(voteData);
-    console.log('changed formData')
   };
 
   useEffect(() => {
@@ -23,7 +21,7 @@ const RestaurantOption = (restaurant: RestaurantType) => {
   return (
     <div data-testid="restaurantOptionDiv" className="restaurant-option">
       <div className="restaurant-left">
-        <img className="restaurant-poster" src={restaurant.photos[0].imgsrc} />
+        <img className="restaurant-poster" src={restaurant.photos[0].imgsrc} alt={restaurant.name}/>
       </div>
       <div className="restaurant-right">
         <div className="restaurant-text">
