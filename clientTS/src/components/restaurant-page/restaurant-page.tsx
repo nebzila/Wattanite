@@ -10,7 +10,7 @@ const RestaurantPage = () => {
 	const [restaurantList, setRestaurantList] = useState<RestaurantType[]>([]);
 	useEffect(() => {
 		getRestaurants().then((result) => {
-			setRestaurantList(result);
+			setRestaurantList(result.slice(0, 6));
 		});
 	}, []);
 
