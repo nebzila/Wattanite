@@ -4,6 +4,8 @@
 /node_modules
 /client/node_modules
 /clientTS/node_modules
+/server/node_modules
+/serverTS/node_modules
 /.pnp
 .pnp.js
 
