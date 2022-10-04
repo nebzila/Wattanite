@@ -9,7 +9,6 @@ import { RestaurantType } from '../../allTypes';
 const RestaurantPage = () => {
 	const [restaurantList, setRestaurantList] = useState<RestaurantType[]>([]);
 	useEffect(() => {
-		getRestaurants().then((res)=> console.log(res))
 		getRestaurants().then((result) => {
 			setRestaurantList(result);
 		});

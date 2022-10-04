@@ -13,13 +13,13 @@ jest.mock('../Services/server-service')
 describe('Restaurant Page Component', () => {
 
   test('should render restaurant Options - Jest Mock Version', async () => {
-    getRestaurants.mockResolvedValue(restaurants);
+    getRestaurants.mockResolvedValue(restaurants.results);
     render(<RestaurantPage/>)
 
     await waitForElementToBeRemoved(() => screen.queryByTestId('loadingdiv'));
 
     screen.getByText('Pizza Express')
-    await screen.findAllByTestId('restoptid')
+    await screen.findAllByTestId('restaurantOptionDiv')
   });
 
 
