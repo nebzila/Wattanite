@@ -8,6 +8,8 @@
 /serverTS/node_modules
 /.pnp
 .pnp.js
+1-getting-started/
+2-advanced-examples/
 
 # testing
 /coverage
