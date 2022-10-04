@@ -19,7 +19,16 @@ describe('Movie Page Component', () => {
 
     screen.getAllByTestId('moviePage-div')
 
+});
 
+test('should render Blonde movie correctly', async () => {
+  render(<MoviePage/>)
+
+  // on load there is a useEffect (not happening in testing)
+  await waitForElementToBeRemoved(() => screen.queryByTestId('loadingdiv'));
+
+  screen.getAllByTestId('moviePage-div')
+  screen.getByText('Blonde') //title
 
 });
 
