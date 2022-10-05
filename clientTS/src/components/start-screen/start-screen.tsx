@@ -1,6 +1,9 @@
 import React, { useState, useContext, FormEvent } from 'react';
 import './start-screen.css';
 import { mainContext } from '../main-box/main-box';
+import { Iprops } from '../../allTypes';
+import { Socket } from 'socket.io-client';
+
 
 const StartScreen = () => {
 

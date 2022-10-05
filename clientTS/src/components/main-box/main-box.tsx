@@ -1,4 +1,4 @@
-import React, { useState, createContext, Dispatch, SetStateAction } from 'react';
+import React, { useState, createContext, Dispatch, SetStateAction, useEffect } from 'react';
 import './main-box.css';
 import StartScreen from '../start-screen/start-screen';
 import MoviePage from '../movie-page/movie-page';
@@ -6,9 +6,13 @@ import RestaurantPage from '../restaurant-page/restaurant-page';
 import WinnerPage from '../winner-page/winner-page';
 import { MovieType, RestaurantType } from '../../allTypes';
 // import { MovieType, RestaurantType } from '../../../../serverTS/src/models/types';
-import { VoteType } from '../../allTypes';
+import { VoteType, Iprops } from '../../allTypes';
+import VotePage from '../vote-page/vote-page';
+
 
 interface IContext {
+	votes: VoteType[];
+	setVotes: Dispatch<SetStateAction<VoteType[]>>
 	page: string;
 	setPage: Dispatch<SetStateAction<string>>;
 	formData: VoteType;
@@ -16,6 +20,8 @@ interface IContext {
 }
 
 export const mainContext = createContext<IContext>({
+	votes: [],
+	setVotes: ()=>null,
 	page: '',
 	setPage: ()=>null,
 	formData: { name: '', postcode: '', movie: { adult: true,
@@ -71,8 +77,8 @@ export const mainContext = createContext<IContext>({
 	setFormData: ()=>null
 	});
 
-const MainBox = () => {
-
+const MainBox = (props: Iprops) => {
+	const [votes, setVotes] = useState<VoteType[]>([])
 	const [page, setPage] = useState('name');
 	const [formData, setFormData] = useState({
 		name: '',
@@ -81,16 +87,26 @@ const MainBox = () => {
 		restaurant: {} as RestaurantType,
 	});
 
+	// setVotes((prevState) => {
+	// 	return [...prevState, data]
+	// });
+	useEffect(() => {
+    props.socket.on('vote-update-broadcast', (data) => {
+      console.log('vote-update-broadcast ', data);
+      setVotes(data);
+    })
+  }, [])
+
 	return (
-		<mainContext.Provider value={{ page, setPage, formData, setFormData }}>
+		<mainContext.Provider value={{ votes, setVotes, page, setPage, formData, setFormData  }}>
 			<div className='main-box'>
 				<h1 className='wattanite'>Wattanite!</h1>
 				{
 					{
 						name: <StartScreen />,
 						movies: <MoviePage />,
-						restaurant: <RestaurantPage />,
-						winner: <WinnerPage />,
+						restaurant: <RestaurantPage socket={props.socket} />,
+						vote: <VotePage socket={props.socket} />,
 					}[page]
 				}
 			</div>

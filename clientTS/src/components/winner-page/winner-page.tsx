@@ -6,13 +6,19 @@ import WinnerRestaurant from '../winner-restaurant/winner-restaurant';
 import Loading from '../loading/loading';
 import { getWinners } from '../../Services/server-service';
 import './winner-page.css';
-import { WinnerType } from '../../allTypes';
+import { WinnerType, MovieType, RestaurantType } from '../../allTypes';
 import Confetti from 'react-confetti';
 
-const WinnerPage = () => {
+
+interface Iprops  {
+  movie: MovieType,
+  restaurant: RestaurantType
+}
+
+const WinnerPage = (props: Iprops) => {
 
   const [winnerList, setWinnerList] = useState<WinnerType>();
-  const { formData } = useContext(mainContext);
+  const { formData, setVotes } = useContext(mainContext);
 
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
@@ -21,7 +27,15 @@ const WinnerPage = () => {
     return {innerWidth, innerHeight};
   }
 
+
   useEffect(() => {
+    // getWinners(formData.name).then((result) => {
+    //   console.log('result of getWinners', result)
+    //   setWinnerList(result);
+    //   console.log('after setting winnerList', winnerList)
+    // });
+
+
     function handleWindowResize() {
       setWindowSize(getWindowSize());
     }
@@ -31,22 +45,11 @@ const WinnerPage = () => {
     return () => {
       window.removeEventListener('resize', handleWindowResize);
     };
+
+
   }, []);
 
-  useEffect(() => {
-    getWinners(formData.name).then((result) => {
-      console.log('result of getWinners', result)
-      setWinnerList(result);
-      console.log('after setting winnerList', winnerList)
-    });
-  }, []);
-
-  return !winnerList ? (
-    <>
-      <h1 className="loader">Collecting results...</h1>
-      <Loading></Loading>
-    </>
-  ) : (
+  return (
     <div className="winner-page">
       <h1>Winners!</h1>
       <div className="winners">
@@ -54,8 +57,8 @@ const WinnerPage = () => {
           width={windowSize.innerWidth}
           height={windowSize.innerHeight}
         />
-        <WinnerMovie movie={winnerList.movie}/>
-        <WinnerRestaurant restaurant={{...winnerList.restaurant}}/>
+        <WinnerMovie movie={props.movie}/>
+        <WinnerRestaurant restaurant={props.restaurant}/>
       </div>
     </div>
   );

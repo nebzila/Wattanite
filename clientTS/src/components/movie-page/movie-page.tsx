@@ -3,8 +3,9 @@ import './movie-page.css';
 import { getMovies } from '../../Services/server-service';
 import MovieOption from '../movie-option/movie-option';
 import Loading from '../loading/loading';
+import { Socket } from 'socket.io-client';
+import { MovieType} from '../../allTypes';
 
-import { MovieType } from '../../allTypes';
 
 const MoviePage = () => {
 

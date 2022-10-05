@@ -1,5 +1,8 @@
 // import { ObjectId } from 'mongodb';
 
+import { Socket } from "socket.io-client";
+
+
 export type MovieType = {
   adult: boolean;
   backdrop_path: string;
@@ -53,6 +56,7 @@ export type RestaurantType = {
 }
 
 export type VoteType = {
+  voteData?: any;
   name: string;
   postcode: string;
   movie: MovieType;
@@ -122,3 +126,8 @@ export const testContext = {
     },
 	setFormData: ()=>null
 	}
+
+  export interface Iprops  {
+    socket: Socket
+  }
+

@@ -4,9 +4,9 @@ import RestaurantOption from '../restaurant-option/restaurant-option';
 import Loading from '../loading/loading';
 import './restaurant-page.css';
 
-import { RestaurantType } from '../../allTypes';
+import { RestaurantType, Iprops } from '../../allTypes';
 
-const RestaurantPage = () => {
+const RestaurantPage = (props: Iprops) => {
 	const [restaurantList, setRestaurantList] = useState<RestaurantType[]>([]);
 	useEffect(() => {
 		getRestaurants().then((result) => {
@@ -19,7 +19,7 @@ const RestaurantPage = () => {
 	) : (
 		<div data-testid="restaurantPage-div" className='restaurant-page'>
 			{restaurantList.map((restaurant) =>
-				<RestaurantOption key={restaurant.place_id} {...restaurant}></RestaurantOption>
+				<RestaurantOption key={restaurant.place_id} restaurant={restaurant} socket={props.socket}></RestaurantOption>
 			)}
 		</div>
 	);
