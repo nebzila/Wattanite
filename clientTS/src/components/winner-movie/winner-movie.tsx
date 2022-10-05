@@ -15,6 +15,7 @@ const WinnerMovie = (props: Iprops) => {
 				<img
 					className='winner-movie-poster'
 					src={'https://image.tmdb.org/t/p/w300/' + movie.poster_path}
+					alt={movie.title}
 				/>
 			</div>
 			<div className='winner-movie-right'>

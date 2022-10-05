@@ -9,17 +9,6 @@ import './winner-page.css';
 import { WinnerType } from '../../allTypes';
 import Confetti from 'react-confetti';
 
-/*
-export default () => {
-  const { width, height } = useWindowSize()
-  return (
-    <Confetti
-      width={width}
-      height={height}
-    />
-*/
-
-
 const WinnerPage = () => {
 
   const [winnerList, setWinnerList] = useState<WinnerType>();
