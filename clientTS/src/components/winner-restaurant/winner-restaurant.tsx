@@ -14,6 +14,7 @@ const WinnerRestaurant = (props: Iprops) => {
 				<img
 					className='winner-restaurant-poster'
 					src={restaurant.photos[0].imgsrc}
+					alt={restaurant.name}
 				/>
 			</div>
 			<div className='winner-restaurant-right'>

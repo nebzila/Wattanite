@@ -7,11 +7,31 @@ import Loading from '../loading/loading';
 import { getWinners } from '../../Services/server-service';
 import './winner-page.css';
 import { WinnerType } from '../../allTypes';
+import Confetti from 'react-confetti';
 
 const WinnerPage = () => {
 
   const [winnerList, setWinnerList] = useState<WinnerType>();
   const { formData } = useContext(mainContext);
+
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  function getWindowSize() {
+    const {innerWidth, innerHeight} = window;
+    return {innerWidth, innerHeight};
+  }
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
 
   useEffect(() => {
     getWinners(formData.name).then((result) => {
@@ -30,6 +50,10 @@ const WinnerPage = () => {
     <div className="winner-page">
       <h1>Winners!</h1>
       <div className="winners">
+        <Confetti
+          width={windowSize.innerWidth}
+          height={windowSize.innerHeight}
+        />
         <WinnerMovie movie={winnerList.movie}/>
         <WinnerRestaurant restaurant={{...winnerList.restaurant}}/>
       </div>

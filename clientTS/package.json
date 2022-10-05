@@ -44,9 +44,7 @@
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.3",
-    "cypress": "^10.9.0"
-  },
-  "devDependencies": {
+    "cypress": "^10.9.0",
     "supertest": "^6.3.0"
   }
 }
