@@ -1,5 +1,4 @@
 
-
 describe('full run through of What a Night', () => {
   it('opens start screen and types details', () => {
     cy.log('RUNNING TEST')
@@ -8,8 +7,8 @@ describe('full run through of What a Night', () => {
     cy.findByPlaceholderText('Enter your postcode...').type('NW8');
     cy.findByRole('button').click()
     cy.findByText('Bullet Train')
-    let chosenMovie;
-    let chosenResaurant;
+    let chosenMovie = '';
+    let chosenResaurant = '';
     cy.get('.movie-title')
     .first()
     .then(($h1) => {
@@ -30,19 +29,16 @@ describe('full run through of What a Night', () => {
       .last()
       .click()
 
-  // expect winner page items to equal the text found prior.
+    cy.log('final rest: ', chosenResaurant, ' final movie: ', chosenMovie)
 
-  // expect()
-  //   cy.get('.movie-page'
-  // .children()
-  // .should('contain', 'Name')
-  // .and('contain', 'Age')
-  // .and('contain', 'Weight')
-  // .and('contain', 'Height')
-  // .and('contain', 'Favorite Color')
+    cy.get('.winner-restaurant-title').should(($txt) => {
+      expect($txt.text()).to.eq(chosenResaurant)
+    })
+    cy.get('.winner-movie-title').should(($txt) => {
+      expect($txt.text()).to.eq(chosenMovie)
+    })
 
-  })
-
+})
 
 })
 
