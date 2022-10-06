@@ -51,30 +51,26 @@ const VotePage = (props: Iprops) => {
   const calcWinnerfromCountObj = (resultsObj: any) => {
     let maxIndex: number = 0;
     let maxVal: number = 0;
-    console.log(resultsObj)
     Object.keys(resultsObj)
     const valArr: number[] = Object.values(resultsObj)
     valArr.forEach((val: number, index: number, array: number[]) => {
       if (array[maxIndex] < val) {
-        console.log(val)
         maxIndex = index
         maxVal = val;
       };
     })
     // what if multiple of same? - can add randomization later
     const finalIdentifier: string = Object.keys(resultsObj)[maxIndex]
-    console.log('finalIdentifier')
     return finalIdentifier;
   }
 
   const clickHandler = () => {
     const calculatedWinners = calculateWinners();
-    console.log('calculated winners to be: ', calculatedWinners)
     props.socket.emit('end', calculatedWinners)
     setWinnersList(calculatedWinners)
     setEnd(true)
   }
-  return !end ? (<div>
+  return !end ? (<div className='votes'>
     <h1 className='userText'> Votes: </h1>
     {votes.map((vote) =>
     <>

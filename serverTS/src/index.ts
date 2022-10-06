@@ -30,7 +30,6 @@ socketIO.on('connection', (socket: any) => {
 
 
   socket.on('userStart', (user: any) => {
-    console.log('HELLOOOOO');
       console.log(`user: ${user.socketID} or ${user.name} with postcode ${user.postcode}`)
   })
 

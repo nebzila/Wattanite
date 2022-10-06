@@ -17,14 +17,4 @@ describe('Restaurant Page Component', () => {
 
   });
 
-  test('should render Noodle House restaurant correctly', async () => {
-    render(<RestaurantPage socket={socket}/>)
-
-    // on load there is a useEffect (not happening in testing)
-    await waitForElementToBeRemoved(() => screen.queryByTestId('loadingdiv'));
-
-    screen.getAllByTestId('restaurantPage-div')
-    screen.getByText('Noodle House')    //name
-
-  });
 })

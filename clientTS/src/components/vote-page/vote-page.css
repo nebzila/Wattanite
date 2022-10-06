@@ -13,6 +13,11 @@
 	color: white;
 }
 
+.button {
+	text-align: center;
+}
+
+
 .voteContainer {
 	height: 100%;
 	display: flex;

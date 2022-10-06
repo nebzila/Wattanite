@@ -98,9 +98,6 @@ const MainBox = (props: Iprops) => {
 		restaurant: {} as RestaurantType,
 	});
 
-	// setVotes((prevState) => {
-	// 	return [...prevState, data]
-	// });
 	useEffect(() => {
     props.socket.on('vote-update-broadcast', (data) => {
       console.log('vote-update-broadcast ');
