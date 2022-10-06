@@ -36,10 +36,15 @@ socketIO.on('connection', (socket: any) => {
 
 
   socket.on('vote', (vote: any) => {
-      console.log(`vote: ${vote}`)
       votes = vote
-      console.log('votes: ', votes)
+      console.log('vote has been received')
       socket.broadcast.emit('vote-update-broadcast', votes)
+  })
+
+  socket.on('end', (winners: any) => {
+    console.log('end is sent out: ', winners)
+    socket.broadcast.emit('end-all', winners)
+    votes = []
   })
 
 

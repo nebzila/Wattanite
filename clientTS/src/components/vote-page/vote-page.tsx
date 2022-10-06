@@ -10,17 +10,12 @@ import { WinnerType, Iprops, MovieType, RestaurantType } from '../../allTypes';
 import Confetti from 'react-confetti';
 import WinnerPage from '../winner-page/winner-page';
 import { result } from 'cypress/types/lodash';
+import { Socket } from 'socket.io-client';
 
 const VotePage = (props: Iprops) => {
 
-  const { votes, formData, setVotes } = useContext(mainContext);
+  const { winnersList, setWinnersList, end, setEnd, votes, formData, setVotes } = useContext(mainContext);
 
-  type winners = {
-    movie: MovieType
-    restaurant: RestaurantType
-  }
-
-  const [winnersList, setWinnersList] = useState<winners>()
   const [clicked, setClicked] = useState<number>(0)
 
   const calculateWinners = () => {
@@ -75,13 +70,22 @@ const VotePage = (props: Iprops) => {
   const clickHandler = () => {
     const calculatedWinners = calculateWinners();
     console.log('calculated winners to be: ', calculatedWinners)
+    props.socket.emit('end', calculatedWinners)
     setWinnersList(calculatedWinners)
-    setClicked(1)
+    setEnd(true)
   }
-  return !clicked ? (<div>
-    <h1> THE VOTES ARE: </h1>
+  return !end ? (<div>
+    <h1 className='userText'> Votes: </h1>
     {votes.map((vote) =>
-      <h1>{vote.name}</h1>
+    <>
+    <div className='userContainer'>
+    <h1 className='username'>{vote.name}:</h1>
+    <div className='voteContainer'>
+    <WinnerMovie movie={vote.movie}></WinnerMovie>
+    <WinnerRestaurant restaurant={vote.restaurant}></WinnerRestaurant>
+    </div>
+    </div>
+</>
 
     )}
     <button onClick={clickHandler}> End Game </button>
