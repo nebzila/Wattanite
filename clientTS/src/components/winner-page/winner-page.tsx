@@ -29,6 +29,7 @@ const WinnerPage = (props: Iprops) => {
 
 
   useEffect(() => {
+    // oldDB call before WebSockets Refactor
     // getWinners(formData.name).then((result) => {
     //   console.log('result of getWinners', result)
     //   setWinnerList(result);

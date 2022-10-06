@@ -131,3 +131,7 @@ export const testContext = {
     socket: Socket
   }
 
+export type winners = {
+  movie: MovieType
+  restaurant: RestaurantType
+}

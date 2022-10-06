@@ -4,13 +4,17 @@ import StartScreen from '../start-screen/start-screen';
 import MoviePage from '../movie-page/movie-page';
 import RestaurantPage from '../restaurant-page/restaurant-page';
 import WinnerPage from '../winner-page/winner-page';
-import { MovieType, RestaurantType } from '../../allTypes';
+import { MovieType, RestaurantType, winners } from '../../allTypes';
 // import { MovieType, RestaurantType } from '../../../../serverTS/src/models/types';
 import { VoteType, Iprops } from '../../allTypes';
 import VotePage from '../vote-page/vote-page';
 
 
 interface IContext {
+	winnersList: any;
+	setWinnersList: Dispatch<SetStateAction<any>>
+	end: boolean;
+	setEnd: Dispatch<SetStateAction<boolean>>
 	votes: VoteType[];
 	setVotes: Dispatch<SetStateAction<VoteType[]>>
 	page: string;
@@ -18,8 +22,13 @@ interface IContext {
 	formData: VoteType;
 	setFormData: Dispatch<SetStateAction<VoteType>>;
 }
+// export const mainContext = createContext<IContext | undefined>(undefined);
 
 export const mainContext = createContext<IContext>({
+	winnersList: {},
+	setWinnersList: ()=>null,
+	end: false,
+	setEnd: ()=>null,
 	votes: [],
 	setVotes: ()=>null,
 	page: '',
@@ -78,6 +87,8 @@ export const mainContext = createContext<IContext>({
 	});
 
 const MainBox = (props: Iprops) => {
+	const [winnersList, setWinnersList] = useState<any>({})
+	const [end, setEnd] = useState<boolean>(false)
 	const [votes, setVotes] = useState<VoteType[]>([])
 	const [page, setPage] = useState('name');
 	const [formData, setFormData] = useState({
@@ -87,18 +98,22 @@ const MainBox = (props: Iprops) => {
 		restaurant: {} as RestaurantType,
 	});
 
-	// setVotes((prevState) => {
-	// 	return [...prevState, data]
-	// });
 	useEffect(() => {
     props.socket.on('vote-update-broadcast', (data) => {
-      console.log('vote-update-broadcast ', data);
+      console.log('vote-update-broadcast ');
       setVotes(data);
     })
+
+		props.socket.on('end-all', (winners) => {
+			console.log('end is being broadcast')
+			setWinnersList(winners)
+			setEnd(true);
+			setPage('vote')
+		})
   }, [])
 
 	return (
-		<mainContext.Provider value={{ votes, setVotes, page, setPage, formData, setFormData  }}>
+		<mainContext.Provider value={{winnersList, setWinnersList, setEnd, end, votes, setVotes, page, setPage, formData, setFormData  }}>
 			<div className='main-box'>
 				<h1 className='wattanite'>Wattanite!</h1>
 				{

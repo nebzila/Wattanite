@@ -26,9 +26,7 @@ export const getWinners = async (name: string) => {
   try {
     console.log('getWinners in client is running');
     const res = await fetch(baseURL + `/vote/get/${name}`);
-    console.log('res from fetch', res)
     const winner = await res.json()
-    console.log('res after json', winner)
     return winner
   } catch (error) {
     console.log('ERROR: getWinners Service', error);

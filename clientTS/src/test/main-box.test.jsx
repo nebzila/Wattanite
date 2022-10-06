@@ -6,7 +6,8 @@ import MainBox from '../components/main-box/main-box';
 import {movies, restaurants} from './mocks'
 import MoviePage from '../components/movie-page/movie-page';
 import { getMovies } from '../Services/server-service';
-
+import * as socketIO from "socket.io-client";
+const socket = socketIO.connect('http://localhost:3002');
 
 
 
@@ -15,7 +16,7 @@ describe('Main Box Component', () => {
 
 
   test('should render Loading after submit', async () => {
-    render(<MainBox> </MainBox>);
+    render(<MainBox socket={socket}> </MainBox>);
     const submitBtn = screen.getByRole('button', {name: "Start"})
     const postCodeInput = screen.getByPlaceholderText('Enter your postcode...') // if doesn't find the test will fail
     const nameInput = screen.getByPlaceholderText('Enter your name...')

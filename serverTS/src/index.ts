@@ -30,16 +30,20 @@ socketIO.on('connection', (socket: any) => {
 
 
   socket.on('userStart', (user: any) => {
-    console.log('HELLOOOOO');
       console.log(`user: ${user.socketID} or ${user.name} with postcode ${user.postcode}`)
   })
 
 
   socket.on('vote', (vote: any) => {
-      console.log(`vote: ${vote}`)
       votes = vote
-      console.log('votes: ', votes)
+      console.log('vote has been received')
       socket.broadcast.emit('vote-update-broadcast', votes)
+  })
+
+  socket.on('end', (winners: any) => {
+    console.log('end is sent out: ', winners)
+    socket.broadcast.emit('end-all', winners)
+    votes = []
   })
 
 

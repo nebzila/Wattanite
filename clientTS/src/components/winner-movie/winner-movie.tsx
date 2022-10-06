@@ -8,7 +8,6 @@ interface Iprops  {
 
 const WinnerMovie = (props: Iprops) => {
 	const {movie} = props
-	console.log('MOVIE ', movie)
 	return (
 		<div className='winner-movie-option'>
 			<div className='winner-movie-left'>

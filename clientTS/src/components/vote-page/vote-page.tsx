@@ -10,17 +10,12 @@ import { WinnerType, Iprops, MovieType, RestaurantType } from '../../allTypes';
 import Confetti from 'react-confetti';
 import WinnerPage from '../winner-page/winner-page';
 import { result } from 'cypress/types/lodash';
+import { Socket } from 'socket.io-client';
 
 const VotePage = (props: Iprops) => {
 
-  const { votes, formData, setVotes } = useContext(mainContext);
+  const { winnersList, setWinnersList, end, setEnd, votes, formData, setVotes } = useContext(mainContext);
 
-  type winners = {
-    movie: MovieType
-    restaurant: RestaurantType
-  }
-
-  const [winnersList, setWinnersList] = useState<winners>()
   const [clicked, setClicked] = useState<number>(0)
 
   const calculateWinners = () => {
@@ -56,32 +51,37 @@ const VotePage = (props: Iprops) => {
   const calcWinnerfromCountObj = (resultsObj: any) => {
     let maxIndex: number = 0;
     let maxVal: number = 0;
-    console.log(resultsObj)
     Object.keys(resultsObj)
     const valArr: number[] = Object.values(resultsObj)
     valArr.forEach((val: number, index: number, array: number[]) => {
       if (array[maxIndex] < val) {
-        console.log(val)
         maxIndex = index
         maxVal = val;
       };
     })
     // what if multiple of same? - can add randomization later
     const finalIdentifier: string = Object.keys(resultsObj)[maxIndex]
-    console.log('finalIdentifier')
     return finalIdentifier;
   }
 
   const clickHandler = () => {
     const calculatedWinners = calculateWinners();
-    console.log('calculated winners to be: ', calculatedWinners)
+    props.socket.emit('end', calculatedWinners)
     setWinnersList(calculatedWinners)
-    setClicked(1)
+    setEnd(true)
   }
-  return !clicked ? (<div>
-    <h1> THE VOTES ARE: </h1>
+  return !end ? (<div className='votes'>
+    <h1 className='userText'> Votes: </h1>
     {votes.map((vote) =>
-      <h1>{vote.name}</h1>
+    <>
+    <div className='userContainer'>
+    <h1 className='username'>{vote.name}:</h1>
+    <div className='voteContainer'>
+    <WinnerMovie movie={vote.movie}></WinnerMovie>
+    <WinnerRestaurant restaurant={vote.restaurant}></WinnerRestaurant>
+    </div>
+    </div>
+</>
 
     )}
     <button onClick={clickHandler}> End Game </button>
