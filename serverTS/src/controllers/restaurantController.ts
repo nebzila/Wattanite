@@ -6,7 +6,7 @@ import * as dotenv from 'dotenv';
 dotenv.config({path: path.resolve(__dirname+'../../../../.env')});
 
 const restaurantKey: (string | undefined) = process.env.REACT_APP_GOOGLE_API_KEY;
-const restaurantURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=takeaway&location=london&radius=500&region=UK&key=${restaurantKey}`;
+const restaurantURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=takeaway&location=london&region=UK&key=${restaurantKey}`;
 
 const photoURL = (ref:string): string =>
   `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=${restaurantKey}`;
