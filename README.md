@@ -27,7 +27,7 @@ It was built out of frustration of sitting on Netflix too long without any decis
 
 3. `cd server` and `npm run dev` could instead do `npm run build` and `npm run start`.
 
-### Tech Stack
+## Tech Stack
 
 Testing:
 - Jest
