@@ -28,6 +28,8 @@ It was built out of frustration of sitting on Netflix too long without any decis
 
 4. `cd server` and `npm run dev` could instead do `npm run build` and `npm run start`.
 
+* Please note, this app will require API keys for Google and TMDB.
+
 ## Tech Stack
 
 | Front End     | Back End      | APIs          |      Testing  |
