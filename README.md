@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Wattanite Refactor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository took an existing project, built by one of our colleagues in Codeworks, and refactored it.
 
-## Available Scripts
+Wattanite is an app that allows you and your friends/family to vote on a movie to watch and restaurant to order from for the night.
 
-In the project directory, you can run:
+Multiple users can vote at the same time and results will be displayed simultaneously to all users, using web sockets.
 
-### `npm start`
+It was built out of frustration of sitting on Netflix too long without any decisions being made.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Tasks completed during refactor:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Converted the client and server to TypeScript from plain Javascript.**
 
-### `npm test`
+- **Added WebSockets to the app so that multiple users could vote.**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Refactored the backend endpoints.**
 
-### `npm run build`
+- **Added Testing to the frontend and backend with Jest & Cypress.**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Fork the repo.
 
-### `npm run eject`
+2. `cd client` and `npm run start` to load the client
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. `cd server` and `npm run dev` could instead do `npm run build` and `npm run start`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tech Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Testing:
+- Jest
+- Cypress
+- Mock Service Workers
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Front-end:
+- React
+- Tailwind
 
-## Learn More
+Back-end: 
+- Express
+- Socket.IO
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+APIs:
+- Google Maps API
+- MovieDB API
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Contributors:
 
-### Code Splitting
+- Alex Kubbinga
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Simon Roope 
