@@ -1,12 +1,10 @@
-# Wattanite Refactor
+# Wattanite
 
-This repository took an existing project, built by one of our colleagues in Codeworks, and refactored it.
-
-Wattanite is an app that allows you and your friends/family to vote on a movie to watch and restaurant to order from for the night.
+Wattanite is an app that allows a group of users to vote on a selection of top movies and local restaurants, <br>retrieved from API calls using user-provided information.
 
 Multiple users can vote at the same time and results will be displayed simultaneously to all users, using web sockets.
 
-It was built out of frustration of sitting on Netflix too long without any decisions being made.
+It was built out of frustration of sitting on Netflix too long without any decisions being made. It gamifies <br>this experience and makes it fun and fair for all users.
 
 ### Tasks completed during refactor:
 
@@ -29,25 +27,16 @@ It was built out of frustration of sitting on Netflix too long without any decis
 
 ## Tech Stack
 
-Testing:
-- Jest
-- Cypress
-- Mock Service Workers
-
-Front-end:
-- React
-- Tailwind
-
-Back-end: 
-- Express
-- Socket.IO
-
-APIs:
-- Google Maps API
-- MovieDB API
+| Front End     | Back End      | APIs          |      Testing  |
+| ------------- | ------------- | ------------- | ------------- |
+| React         | Express       | Google Maps   |   Jest |
+| Tailwind      | Socket.IO     |  MovieDB      |   Cypress |
+|          |      |               |   Mock Service Workers |
 
 ### Contributors:
 
 - Alex Kubbinga
 
 - Simon Roope 
+
+- Ben Stimpson
