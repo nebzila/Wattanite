@@ -26,7 +26,7 @@ It was built out of frustration of sitting on Netflix too long without any decis
 
 3. `cd client` and `npm run start` to load the client.
 
-4. `cd server` and `npm run dev` could instead do `npm run build` and `npm run start`.
+4. `cd server` and `npm run dev`, or alternatively `npm run build` and `npm run start` to start the server.
 
 * Please note, this app will require API keys for Google and TMDB.
 
