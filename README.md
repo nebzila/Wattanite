@@ -1,5 +1,6 @@
 # Wattanite
 
+## Features
 Wattanite is an app that allows a group of users to vote on a selection of top movies and local restaurants, <br>retrieved from API calls using user-provided information.
 
 Multiple users can vote at the same time and results will be displayed simultaneously to all users, using web sockets.
@@ -21,9 +22,11 @@ It was built out of frustration of sitting on Netflix too long without any decis
 
 1. Fork the repo.
 
-2. `cd client` and `npm run start` to load the client
+2. `npm install` to install the dependencies.
 
-3. `cd server` and `npm run dev` could instead do `npm run build` and `npm run start`.
+3. `cd client` and `npm run start` to load the client.
+
+4. `cd server` and `npm run dev` could instead do `npm run build` and `npm run start`.
 
 ## Tech Stack
 
