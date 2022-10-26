@@ -16,7 +16,7 @@ export const getRestaurants = async () => {
   try {
     const response = await fetch(baseURL + '/api/restaurants');
     const restaurantData = await response.json();
-    return restaurantData.results;
+    return restaurantData;
   } catch (error) {
     console.log('ERROR: getRestaurants Service', error);
   }
@@ -26,8 +26,8 @@ export const getWinners = async (name: string) => {
   try {
     console.log('getWinners in client is running');
     const res = await fetch(baseURL + `/vote/get/${name}`);
-    const winner = await res.json()
-    return winner
+    const winner = await res.json();
+    return winner;
   } catch (error) {
     console.log('ERROR: getWinners Service', error);
   }
