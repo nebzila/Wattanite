@@ -1,5 +1,4 @@
 # Wattanite
-## About
 It was built out of frustration of sitting on Netflix too long without any decisions being made. It gamifies <br>this experience and makes it fun and fair for all users.
 
 ## Features
