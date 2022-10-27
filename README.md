@@ -5,7 +5,7 @@ It was built out of frustration of sitting on Netflix too long without any decis
 ## Features
 * Wattanite is an app that allows a group of users to vote on a selection of top movies and local restaurants, <br>retrieved from API calls using user-provided information.
 
-*Multiple users can vote at the same time and results will be displayed simultaneously to all users, using web sockets.
+* Multiple users can vote at the same time and results will be displayed simultaneously to all users, using web sockets.
 
 ### Tasks completed during refactor:
 
