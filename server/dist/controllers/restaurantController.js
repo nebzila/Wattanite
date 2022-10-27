@@ -40,17 +40,21 @@ const path_1 = __importDefault(require("path"));
 const dotenv = __importStar(require("dotenv"));
 dotenv.config({ path: path_1.default.resolve(__dirname + '../../../../.env') });
 const restaurantKey = process.env.REACT_APP_GOOGLE_API_KEY;
-const restaurantURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=takeaway&location=london&radius=500&region=UK&key=${restaurantKey}`;
+const restaurantURL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=takeaway&location=london&region=UK&key=${restaurantKey}`;
 const photoURL = (ref) => `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=${restaurantKey}`;
 const getRestaurants = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         console.log('getRestaurants running');
         const restaurantsData = yield fetch(restaurantURL);
         const restaurants = yield restaurantsData.json();
+        const restaurantsWithPhotos = [];
         restaurants.results.forEach((restaurant) => {
-            restaurant.photos.forEach((photo) => (photo.imgsrc = photoURL(photo.photo_reference)));
+            if (restaurant.photos) {
+                restaurant.photos.forEach((photo) => (photo.imgsrc = photoURL(photo.photo_reference)));
+                restaurantsWithPhotos.push(restaurant);
+            }
         });
-        res.send(restaurants);
+        res.send(restaurantsWithPhotos);
         res.status(200);
     }
     catch (error) {
