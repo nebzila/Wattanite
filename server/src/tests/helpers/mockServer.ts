@@ -1,8 +1,7 @@
 import request from 'supertest';
 import express, { Application } from 'express';
 import cors from 'cors';
-import router from '../../src/routes/Api';
-
+import router from '../../routes/Api';
 
 const app: Application = express();
 app.use(cors());

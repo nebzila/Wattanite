@@ -16,10 +16,25 @@ const socketIO = require('socket.io')(server, {
         origin: "http://localhost:3000"
     }
 });
+let votes = [];
 socketIO.on('connection', (socket) => {
+    socket.emit('vote-update-broadcast', votes);
     console.log(`${socket.id} user  connected!`);
     socket.on('disconnect', () => {
         console.log('🔥: A user disconnected');
+    });
+    socket.on('userStart', (user) => {
+        console.log(`user: ${user.socketID} or ${user.name} with postcode ${user.postcode}`);
+    });
+    socket.on('vote', (vote) => {
+        votes = vote;
+        console.log('vote has been received');
+        socket.broadcast.emit('vote-update-broadcast', votes);
+    });
+    socket.on('end', (winners) => {
+        console.log('end is sent out: ', winners);
+        socket.broadcast.emit('end-all', winners);
+        votes = [];
     });
 });
 app.use(express_1.default.json());
